@@ -22,7 +22,6 @@ set smarttab                       " use smart tabbing
 set shiftwidth=4                   " tab width (indentation)
 set tabstop=4                      " tab stop width
 syntax on                          " enable syntax highlighting
-filetype on                        " enable filetype detection
 filetype plugin indent on          " enable filetype based plugins and indentation
 
 colorscheme mlessnau

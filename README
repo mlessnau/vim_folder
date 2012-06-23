@@ -1,0 +1,4 @@
+Install:
+
+	$ ln -s ~/.vim/vimrc ~/.vimrc
+

@@ -15,7 +15,7 @@ set ttymouse=xterm2                " mouse related fix (had some issues with ite
 set mouse=a                        " enable mouse support
 set hlsearch                       " highlight search matches
 set incsearch                      " search matches as you type
-let g:NERDTreeShowHidden=1         " show hidden files in NERTree
+"let g:NERDTreeShowHidden=1         " show hidden files in NERTree
 let g:NERDTreeWinSize=40           " set NERDTree width to 50 columns
 set noexpandtab                    " use tabs
 set smarttab                       " use smart tabbing

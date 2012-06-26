@@ -2,6 +2,7 @@ set nocompatible                   " use all of Vim's features
 set backupdir=/tmp                 " backup file directory
 set directory=/tmp                 " swap file directory
 set fileencoding=utf8              " default file encoding
+set wildmenu                       " bash like completion for files
 set t_Co=256                       " enable 256 colors
 set number                         " line numbers
 set wrap                           " word wrap

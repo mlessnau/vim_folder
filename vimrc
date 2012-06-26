@@ -27,38 +27,16 @@ filetype plugin indent on          " enable filetype based plugins and indentati
 colorscheme mlessnau
 autocmd VimEnter * NERDTree        " open NERDTree on startup
 
-" Custom file extensions
-au BufNewFile,BufRead *.phtml set filetype=html
-au BufNewFile,BufRead *.ctp set filetype=html
-au BufNewFile,BufRead *.ui set filetype=ruby
-au BufNewFile,BufRead Gemfile set filetype=ruby
-au BufNewFile,BufRead Gemfile.lock set filetype=ruby
-au BufNewFile,BufRead Rakefile set filetype=ruby
-au BufNewFile,BufRead Fudgefile set filetype=ruby
-
-" remove trailing spaces on save
-fun! <SID>StripTrailingWhitespaces()
-  let l = line(".")
-  let c = col(".")
-  %s/\s\+$//e
-  call cursor(l, c)
-endfun
-autocmd FileType h,hpp,c,cc,cpp,java,php,html,rb,ruby,python,textile,vim autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
-" status bar
-func! STL()
-  let barWidth = 25 " scroll bar width
-  if line('$') > 1
-    let progress = (line('.') - 1) * (barWidth - 1) / (line('$') - 1)
-  else
-    let progress = barWidth / 2
-  endif
-  let bar = repeat('-', progress) . '%l' . repeat('-', barWidth - progress - 1)
-  return '%f [%{(&fenc==""?&enc:&fenc).((exists("+bomb") && &bomb)?",B":"")}%M%R%H%W] %y %=[%l,%v] 1[' . bar . ']%L'
-endfun
-hi def link User1 DiffAdd
-hi def link User2 DiffDelete
-set stl=%!STL()
+augroup CustomFileTypes
+	au!
+	au BufNewFile,BufRead *.phtml setfiletype html
+	au BufNewFile,BufRead *.ctp setfiletype html
+	au BufNewFile,BufRead *.ui setfiletype ruby
+	au BufNewFile,BufRead Gemfile setfiletype ruby
+	au BufNewFile,BufRead Gemfile.lock setfiletype ruby
+	au BufNewFile,BufRead Rakefile setfiletype ruby
+	au BufNewFile,BufRead Fudgefile setfiletype ruby
+augroup END
 
 " mappings
 cmap w!! %!sudo tee > /dev/null %
@@ -78,4 +56,3 @@ endif
 :command! Unsnip r /tmp/snippet
 :command! Q qa!
 :command! WQ wqa!
-

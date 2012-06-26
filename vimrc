@@ -6,7 +6,8 @@ set wildmenu                       " bash like completion for files
 set t_Co=256                       " enable 256 colors
 set number                         " line numbers
 set wrap                           " word wrap
-set scrolloff=10                   " current line scrolling offset
+set scrolloff=10                   " offset kept above/below to cursor position
+set sidescrolloff=10               " offset kept left/right to cursor position
 set list lcs=tab:·\ ,trail:¶,eol:¬ " whitespace markers
 set colorcolumn=80                 " put a marker at 80-th column
 set cursorline                     " highlight current line

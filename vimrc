@@ -6,7 +6,7 @@ set t_Co=256                       " enable 256 colors
 set number                         " line numbers
 set wrap                           " word wrap
 set scrolloff=10                   " places the current line in the middle of the window
-set list lcs=tab:·\ ,trail:¶,eol:¬
+set list lcs=tab:·\ ,trail:¶,eol:¬ " whitespace markers
 set colorcolumn=80                 " put a marker at 80-th column
 set cursorline                     " highlight current line
 set title                          " set terminal title
@@ -15,28 +15,17 @@ set ttymouse=xterm2                " mouse related fix (had some issues with ite
 set mouse=a                        " enable mouse support
 set hlsearch                       " highlight search matches
 set incsearch                      " search matches as you type
-"let g:NERDTreeShowHidden=1         " show hidden files in NERTree
+let g:NERDTreeShowHidden=0         " show hidden files in NERTree by default
 let g:NERDTreeWinSize=40           " set NERDTree width to 50 columns
 set noexpandtab                    " use tabs
 set smarttab                       " use smart tabbing
 set shiftwidth=4                   " tab width (indentation)
 set tabstop=4                      " tab stop width
+colorscheme mlessnau               " colour schema
 syntax on                          " enable syntax highlighting
 filetype plugin indent on          " enable filetype based plugins and indentation
 
-colorscheme mlessnau
 autocmd VimEnter * NERDTree        " open NERDTree on startup
-
-augroup CustomFileTypes
-	au!
-	au BufNewFile,BufRead *.phtml setfiletype html
-	au BufNewFile,BufRead *.ctp setfiletype html
-	au BufNewFile,BufRead *.ui setfiletype ruby
-	au BufNewFile,BufRead Gemfile setfiletype ruby
-	au BufNewFile,BufRead Gemfile.lock setfiletype ruby
-	au BufNewFile,BufRead Rakefile setfiletype ruby
-	au BufNewFile,BufRead Fudgefile setfiletype ruby
-augroup END
 
 " mappings
 cmap w!! %!sudo tee > /dev/null %

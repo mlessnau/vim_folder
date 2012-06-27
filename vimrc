@@ -24,6 +24,7 @@ set smarttab                       " use smart tabbing
 set shiftwidth=4                   " tab width (indentation)
 set tabstop=4                      " tab stop width
 set bs=indent,eol,start            " backspace over everything including linebreaks and indentation
+set lazyredraw                     " disable rendering when macros are executed
 colorscheme mlessnau               " colour schema
 syntax on                          " enable syntax highlighting
 filetype plugin indent on          " enable filetype plugins and indentation

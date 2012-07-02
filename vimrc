@@ -35,6 +35,9 @@ let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 autocmd VimEnter * NERDTree            " open NERDTree on startup
 map <leader>n :NERDTreeToggle<CR>
 
+" Calendar
+map <leader>c :CalendarH<CR>
+
 " EasyMotion
 map <leader>w <leader><leader>w
 map <leader>W <leader><leader>b

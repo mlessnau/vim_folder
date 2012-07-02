@@ -33,6 +33,14 @@ filetype plugin indent on              " enable filetype plugins and indentation
 let g:NERDTreeShowHidden=0             " show hidden files in NERTree by default
 let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 autocmd VimEnter * NERDTree            " open NERDTree on startup
+
+" ==== mappings ===============================================================
+
+cmap w!! %!sudo tee > /dev/null %
+map <CR> o
+map ci_ :set iskeyword-=_<CR>ciw<Esc>:set iskeyword+=_<CR>a
+
+" NERDTree
 map <leader>n :NERDTreeToggle<CR>
 
 " Calendar
@@ -42,14 +50,6 @@ map <leader>c :CalendarH<CR>
 map <leader>w <leader><leader>w
 map <leader>W <leader><leader>b
 
-" ==== mappings ===============================================================
-
-cmap w!! %!sudo tee > /dev/null %
-
-map <CR> O<Esc>j
-map ci_ :set iskeyword-=_<CR>ciw<Esc>:set iskeyword+=_<CR>a
-map <space> /
-map <c-space> ?
 " when using 'TERM=screen-256color' (tmux compatibility) vim cannot handle
 " some key bindings anymore
 if $TERM =~ '^screen-256color'

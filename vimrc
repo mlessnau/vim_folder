@@ -35,10 +35,6 @@ let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 autocmd VimEnter * NERDTree            " open NERDTree on startup
 map <leader>n :NERDTreeToggle<CR>
 
-" buffer management
-map <leader>q :hide<CR>
-map <leader>b :call BufferList()<CR>
-
 " EasyMotion
 map <leader>w <leader><leader>w
 map <leader>W <leader><leader>b

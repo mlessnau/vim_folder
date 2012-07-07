@@ -9,4 +9,5 @@ augroup CustomFileTypes
 	au BufNewFile,BufRead Fudgefile    setfiletype ruby
 	au BufNewFile,BufRead Gemfile      setfiletype ruby
 	au BufNewFile,BufRead Gemfile.lock setfiletype ruby
+	au BufRead,BufNewFile *.scss       set filetype=scss
 augroup END

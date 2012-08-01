@@ -1,12 +1,9 @@
 " register custom file types
-augroup CustomFileTypes
-	"au!
-	au BufNewFile,BufRead *.ctp        setfiletype html
-	au BufNewFile,BufRead *.phtml      setfiletype html
-	au BufNewFile,BufRead *.ui         setfiletype ruby
-	au BufNewFile,BufRead Rakefile     setfiletype ruby
-	au BufNewFile,BufRead Guardfile    setfiletype ruby
-	au BufNewFile,BufRead Fudgefile    setfiletype ruby
-	au BufNewFile,BufRead Gemfile      setfiletype ruby
-	au BufNewFile,BufRead Gemfile.lock setfiletype ruby
-augroup END
+au BufNewFile,BufRead Rakefile     set ft=ruby
+au BufNewFile,BufRead Guardfile    set ft=ruby
+au BufNewFile,BufRead Fudgefile    set ft=ruby
+au BufNewFile,BufRead Gemfile      set ft=ruby
+au BufNewFile,BufRead Gemfile.lock set ft=ruby
+au BufNewFile,BufRead *.ui         set ft=ruby
+au BufNewFile,BufRead *.ctp        set ft=html
+au BufNewFile,BufRead *.phtml      set ft=html

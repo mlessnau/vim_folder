@@ -7,3 +7,5 @@ au BufNewFile,BufRead Gemfile.lock set ft=ruby
 au BufNewFile,BufRead *.ui         set ft=ruby
 au BufNewFile,BufRead *.ctp        set ft=html
 au BufNewFile,BufRead *.phtml      set ft=html
+au BufRead,BufNewFile *.scss       set filetype=scss
+au BufRead,BufNewFile *.less       set filetype=scss

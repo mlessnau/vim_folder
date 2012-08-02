@@ -37,7 +37,7 @@ colorscheme mlessnau                   " colour scheme
 
 " current line/column
 set cursorline                         " highlight current line
-hi CursorLine term=None cterm=None     " remove the line below the line
+hi CursorLine term=None cterm=None     " remove the underline
 "set colorcolumn=80                     " put a marker at 80-th column
 
 " ==== mappings ===============================================================

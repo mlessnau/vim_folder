@@ -4,4 +4,4 @@ fun! <SID>StripTrailingWhitespaces()
   %s/\s\+$//e
   call cursor(l, c)
 endfun
-autocmd FileType h,hpp,c,cc,cpp,java,php,html,rb,ruby,python,textile,vim,javascript,coffee,yml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,javascript,php,ruby,python,vim,html,yaml,textile,coffee autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()

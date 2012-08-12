@@ -32,6 +32,13 @@ let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 autocmd VimEnter * NERDTree            " open NERDTree on startup
 autocmd VimEnter * wincmd l            " focus on buffer
 
+" MRU
+"let MRU_File=~/.vim.mru
+let MRU_Max_Entries=20
+let MRU_Window_Height=14
+let MRU_Max_Menu_Entries=20
+map <leader>m :MRU<CR>
+
 " colors
 colorscheme mlessnau                   " colour scheme
 

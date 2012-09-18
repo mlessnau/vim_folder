@@ -215,7 +215,7 @@ function! s:Bookmark.AddBookmark(name, path)
         endif
     endfor
     call add(s:Bookmark.Bookmarks(), s:Bookmark.New(a:name, a:path))
-    call s:Bookmark.Sort()
+    "call s:Bookmark.Sort()
 endfunction
 " Function: Bookmark.Bookmarks()   {{{3
 " Class method to get all bookmarks. Lazily initializes the bookmarks global
@@ -292,7 +292,7 @@ function! s:Bookmark.CacheBookmarks(silent)
                 call s:echo(invalidBookmarksFound . " invalid bookmarks were read. See :help NERDTreeInvalidBookmarks for info.")
             endif
         endif
-        call s:Bookmark.Sort()
+        "call s:Bookmark.Sort()
     endif
 endfunction
 " FUNCTION: Bookmark.compareTo(otherbookmark) {{{3

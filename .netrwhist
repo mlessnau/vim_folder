@@ -1,3 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =2
 let g:netrw_dirhist_1='/Users/mlessnau/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/bundler/gems/project_fuji-43bdceb13173/fuji_journals'
+let g:netrw_dirhist_2='/Users/mlessnau/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/bundler/gems/project_fuji-43bdceb13173/fuji_support'

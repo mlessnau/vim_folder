@@ -39,6 +39,9 @@ let MRU_Window_Height=14
 let MRU_Max_Menu_Entries=20
 map <leader>m :MRU<CR>
 
+" JSLint
+let g:JSLintHighlightErrorLine = 0
+
 " colors
 colorscheme mlessnau                   " colour scheme
 

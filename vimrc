@@ -43,8 +43,10 @@ map <leader>m :MRU<CR>
 colorscheme mlessnau                   " colour scheme
 
 " current line/column
-set cursorline                         " highlight current line
-hi CursorLine term=None cterm=None     " remove the underline
+set cursorline
+hi CursorLine term=None cterm=None ctermbg=255
+set cursorcolumn
+hi CursorColumn term=None cterm=None ctermbg=255
 "set colorcolumn=80                     " put a marker at 80-th column
 
 " ==== mappings ===============================================================
@@ -58,13 +60,6 @@ map <Tab> <C-w>w
 
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>
-
-" Calendar
-map <leader>c :CalendarH<CR>
-
-" EasyMotion
-map <leader>w <leader><leader>w
-map <leader>W <leader><leader>b
 
 " when using 'TERM=screen-256color' (tmux compat) vim cannot handle some key bindings anymore
 if $TERM =~ '^screen-256color'

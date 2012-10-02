@@ -74,6 +74,9 @@ if $TERM =~ '^screen-256color'
   map! <Esc>OF <End>
 endif
 
+"if has('ruby')
+"endif
+
 " ==== commands ===============================================================
 
 " by whilefalse

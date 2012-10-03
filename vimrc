@@ -55,6 +55,10 @@ cmap w!! %!sudo tee > /dev/null %
 map <CR> o
 map ciu :set iskeyword-=_<CR>ciw<Esc>:set iskeyword+=_<CR>a
 
+" ctags
+map + <C-]>
+map - <C-O>
+
 " Buffer navigation
 map <Tab> <C-w>w
 

@@ -58,6 +58,7 @@ map ciu :set iskeyword-=_<CR>ciw<Esc>:set iskeyword+=_<CR>a
 " ctags
 map + <C-]>
 map - <C-O>
+map ß :tselect<CR>
 
 " Buffer navigation
 map <Tab> <C-w>w

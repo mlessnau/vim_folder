@@ -44,10 +44,11 @@ colorscheme mlessnau                   " colour scheme
 
 " current line/column
 set cursorline
-hi CursorLine term=None cterm=None ctermbg=253
+hi CursorLine term=None cterm=None ctermbg=195
 set cursorcolumn
-hi CursorColumn term=None cterm=None ctermbg=255
-"set colorcolumn=80                     " put a marker at 80-th column
+hi CursorColumn term=None cterm=None ctermbg=195
+set colorcolumn=80
+hi ColorColumn term=None cterm=None ctermbg=255
 
 " ==== mappings ===============================================================
 

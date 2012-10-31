@@ -54,7 +54,6 @@ hi ColorColumn term=None cterm=None ctermbg=255
 
 cmap w!! %!sudo tee > /dev/null %
 map <CR> o
-map ciu :set iskeyword-=_<CR>ciw<Esc>:set iskeyword+=_<CR>a
 
 " ctags
 map + <C-]>

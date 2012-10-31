@@ -6,7 +6,7 @@ set wildmenu                           " bash like completion for files
 set t_Co=256                           " enable 256 colors
 set number                             " line numbers
 set wrap                               " word wrap
-set scrolloff=10                       " offset kept above/below to cursor position
+set scrolloff=30                       " offset kept above/below to cursor position
 set sidescrolloff=10                   " offset kept left/right to cursor position
 set whichwrap+=<,>,[,]                 " enable line warping when using arrow keys
 set list lcs=tab:·\ ,trail:¶,eol:¬     " whitespace markers
@@ -44,9 +44,9 @@ colorscheme mlessnau                   " colour scheme
 
 " current line/column
 set cursorline
-hi CursorLine term=None cterm=None ctermbg=195
+hi CursorLine term=None cterm=None ctermbg=254
 set cursorcolumn
-hi CursorColumn term=None cterm=None ctermbg=195
+hi CursorColumn term=None cterm=None ctermbg=255
 set colorcolumn=80
 hi ColorColumn term=None cterm=None ctermbg=255
 
@@ -63,6 +63,9 @@ map ß :tselect<CR>
 
 " Buffer navigation
 map <Tab> <C-w>w
+
+" Tab navigation
+map <leader>l :tabn<CR>
 
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>

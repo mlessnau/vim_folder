@@ -18,10 +18,10 @@ function! DeleteInCase()
   let lower_camel_case_pattern = '^[a-z][a-z0-9]*\([A-Z0-9][a-z0-9]*\)*$'
 
   if !empty(matchstr(identifier, upper_snake_case_pattern)) || !empty(matchstr(identifier, lower_snake_case_pattern))
-    :call cursor(cursor_y, cursor_x)
-    :set iskeyword-=_
+    call cursor(cursor_y, cursor_x)
+    set iskeyword-=_
     execute "normal diw"
-    :set iskeyword+=_
+    set iskeyword+=_
   elseif !empty(matchstr(identifier, upper_camel_case_pattern)) || !empty(matchstr(identifier, lower_camel_case_pattern))
     let identifier_parts = []
     let identifier_part = ''
@@ -39,7 +39,7 @@ function! DeleteInCase()
       let identifier_offset = identifier_offset + 1
     endwhile
 
-    :call extend(identifier_parts, [identifier_part])
+    call extend(identifier_parts, [identifier_part])
 
     let identifier_offset = 0
     let identifier_part_iterator = 0
@@ -62,16 +62,16 @@ function! DeleteInCase()
           let identifier_offset = identifier_offset - (identifier_part_iterator - identifier_part_iterator_min)
 
           while identifier_part_iterator_max >= identifier_part_iterator_min
-            :call remove(identifier_parts, identifier_part_iterator_max)
+            call remove(identifier_parts, identifier_part_iterator_max)
             let identifier_part_iterator_max = identifier_part_iterator_max - 1
           endwhile
         else
-          :call remove(identifier_parts, identifier_part_iterator)
+          call remove(identifier_parts, identifier_part_iterator)
         endif
 
         let @c = join(identifier_parts, '')
         execute "normal viw\"cp"
-        :call cursor(identifier_y, identifier_x + identifier_offset)
+        call cursor(identifier_y, identifier_x + identifier_offset)
         return
       endif
 
@@ -83,7 +83,7 @@ endfunction
 
 " Same as DeleteInCase except that it starts the insert mode afterwards
 function! ChangeInCase()
-  :call DeleteInCase()
+  call DeleteInCase()
 
   let cursor_x = col('.')
   execute "normal $"
@@ -92,8 +92,8 @@ function! ChangeInCase()
     let cursor_x = cursor_x + 1
   endif
 
-  :startinsert
-  :call cursor(line('.'), cursor_x)
+  startinsert
+  call cursor(line('.'), cursor_x)
 endfunction
 
 map dic :call DeleteInCase()<CR>

@@ -60,6 +60,13 @@ map <CR> o
 " [Space] initiates (forward) search in command mode
 map <Space> /
 
+" text indentation
+"nnoremap <Tab> >>_
+"nnoremap <S-Tab> <<_
+"inoremap <S-Tab> <C-D>
+"vnoremap <Tab> >gv
+"vnoremap <S-Tab> <gv
+
 " ctags
 map + <C-]>
 map - <C-O>

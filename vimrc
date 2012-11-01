@@ -57,6 +57,9 @@ hi ColorColumn term=None cterm=None ctermbg=255
 cmap w!! %!sudo tee > /dev/null %
 map <CR> o
 
+" [Space] initiates (forward) search in command mode
+map <Space> /
+
 " ctags
 map + <C-]>
 map - <C-O>

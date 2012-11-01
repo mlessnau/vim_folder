@@ -16,4 +16,4 @@ function! SanitizeLineEndings()
   :call cursor(cursor_y, cursor_x)
 endfunction
 
-map == :call FormatFile()
+map == :call FormatFile()<CR>

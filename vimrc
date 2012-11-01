@@ -94,6 +94,9 @@ endif
 
 " ==== commands ===============================================================
 
-" by whilefalse
-:command! -range=% Snip '<,'>w! /tmp/snippet
-:command! Unsnip r /tmp/snippet
+" copy contents between vim sessions
+nmap xw V:w! /tmp/snippet<CR>
+nmap xr :r /tmp/snippet<CR>
+vmap xw :w! /tmp/snippet<CR>
+vmap xr c<Esc>:r /tmp/snippet<CR>
+

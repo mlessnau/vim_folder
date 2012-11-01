@@ -44,9 +44,11 @@ colorscheme mlessnau                   " colour scheme
 
 " current line/column
 set cursorline
-hi CursorLine term=None cterm=None ctermbg=254
+"hi CursorLine term=None cterm=None ctermbg=254
+hi CursorLine term=None cterm=None ctermbg=153
 set cursorcolumn
-hi CursorColumn term=None cterm=None ctermbg=255
+"hi CursorColumn term=None cterm=None ctermbg=255
+hi CursorColumn term=None cterm=None ctermbg=153
 set colorcolumn=80
 hi ColorColumn term=None cterm=None ctermbg=255
 
@@ -61,7 +63,7 @@ map - <C-O>
 map ß :tselect<CR>
 
 " Buffer navigation
-map <Tab> <C-w>w
+map <leader><leader> <C-w>w
 
 " Tab navigation
 map <leader>l :tabn<CR>

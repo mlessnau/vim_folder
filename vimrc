@@ -68,9 +68,9 @@ map <Space> /
 "vnoremap <S-Tab> <gv
 
 " ctags
-map + <C-]>
-map - <C-O>
-map ß :tselect<CR>
+map <leader>+ <C-]>
+map <leader>- <C-O>
+map <leader># :tselect<CR>
 
 " Buffer navigation
 map <leader><leader> <C-w>w

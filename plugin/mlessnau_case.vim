@@ -96,5 +96,4 @@ function! ChangeInCase()
   call cursor(line('.'), cursor_x)
 endfunction
 
-map dic :call DeleteInCase()<CR>
 map cic :call ChangeInCase()<CR>

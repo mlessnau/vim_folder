@@ -88,7 +88,7 @@ function! ChangeInCase()
   let cursor_x = col('.')
   execute "normal $"
 
-  if cursor_x >= col('.')
+  if cursor_x > col('.')
     let cursor_x = cursor_x + 1
   endif
 

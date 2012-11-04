@@ -95,8 +95,8 @@ endif
 " ==== commands ===============================================================
 
 " copy contents between vim sessions
-nmap xw V:w! /tmp/snippet<CR>
-nmap xr :r /tmp/snippet<CR>
-vmap xw :w! /tmp/snippet<CR>
-vmap xr c<Esc>:r /tmp/snippet<CR>
+nmap <leader>w V:w! /tmp/snippet<CR>
+nmap <leader>r :r /tmp/snippet<CR>
+vmap <leader>w :w! /tmp/snippet<CR>
+vmap <leader>r c<Esc>:r /tmp/snippet<CR>
 

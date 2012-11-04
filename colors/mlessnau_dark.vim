@@ -1,4 +1,4 @@
-set background=light
+set background=dark
 if version > 580
   hi clear
   if exists("syntax_on")
@@ -218,14 +218,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " }}}
 
   " Global
-  call <SID>X("Normal",             "000000", "ffffff", "")
-  call <SID>X("NonText",            "dddddd", "ffffff", "")
+  call <SID>X("Normal",             "ffffff", "222222", "")
+  call <SID>X("NonText",            "888888", "222222", "")
   " Search
   call <SID>X("Search",             "800000", "ffae00", "")
   call <SID>X("IncSearch",          "800000", "ffae00", "")
   " Interface Elements
-  call <SID>X("StatusLine",         "ffffff", "43c464", "bold")
-  call <SID>X("StatusLineNC",       "9bd4a9", "51b069", "")
+  call <SID>X("StatusLine",         "000000", "ffffff", "bold")
+  call <SID>X("StatusLineNC",       "444444", "888888", "")
+
   call <SID>X("VertSplit",          "438ec3", "438ec3", "")
   call <SID>X("Folded",             "3c78a2", "c3daea", "")
   call <SID>X("IncSearch",          "708090", "f0e68c", "")

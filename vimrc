@@ -32,6 +32,10 @@ let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 autocmd VimEnter * NERDTree            " open NERDTree on startup
 autocmd VimEnter * wincmd l            " focus on buffer
 
+" fugitive
+map <leader>gb :Gblame<CR>
+map <leader>ge :Gedit<CR>
+
 " MRU
 "let MRU_File=~/.vim.mru
 let MRU_Max_Entries=20

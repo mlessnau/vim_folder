@@ -65,6 +65,9 @@ map <leader>+ <C-]>
 map <leader>- <C-O>
 map <leader># :tselect<CR>
 
+" ctrlp
+map <leader><leader> <c-p>
+
 " Tab navigation
 map <leader>l :tabn<CR>
 

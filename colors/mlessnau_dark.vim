@@ -39,7 +39,7 @@ hi LineNr                     ctermfg=235 ctermbg=0
 hi VertSplit                  ctermfg=0   ctermbg=0
 
 " ### Directory Listing #######################################################
-hi Directory                  ctermfg=39
+hi Directory                  ctermfg=117
 
 " ### Specials ################################################################
 hi Todo                       ctermfg=15  ctermbg=201
@@ -51,8 +51,8 @@ hi SpecialKey                 ctermfg=238
 
 " ### Syntax Elements #########################################################
 hi String                     ctermfg=120
-hi Constant                   ctermfg=39
-hi Number                     ctermfg=39
+hi Constant                   ctermfg=117
+hi Number                     ctermfg=117
 hi Statement                  ctermfg=208             cterm=bold
 hi Function                   ctermfg=214
 hi PreProc                    ctermfg=207             cterm=bold
@@ -107,7 +107,7 @@ hi htmlUnderlineItalic                                cterm=underline,italic
 " ### Ruby Related ############################################################
 hi rubyAccess                 ctermfg=9               cterm=bold
 hi rubyBeginEnd               ctermfg=208             cterm=bold
-hi rubyBlockParameter         ctermfg=39
+hi rubyBlockParameter         ctermfg=117
 hi rubyClass                  ctermfg=208             cterm=bold
 hi rubyConditional            ctermfg=208             cterm=bold
 hi rubyConstant               ctermfg=15              cterm=bold
@@ -119,10 +119,11 @@ hi rubyInterpolationDelimiter ctermfg=207
 hi rubyKeyword                ctermfg=208             cterm=bold
 hi rubyString                 ctermfg=120
 hi rubyStringDelimiter        ctermfg=120
-hi rubySymbol                 ctermfg=39
+hi rubySymbol                 ctermfg=117
 hi rubyRegexp                 ctermfg=207
 hi rubyRegexpDelimiter        ctermfg=207
 hi rubyRegexpSpecial          ctermfg=207
+hi rubyInclude                ctermfg=208             cterm=bold
 
 " ### Vim Related #############################################################
 hi vimCommand                 ctermfg=208             cterm=bold
@@ -147,7 +148,7 @@ hi phpDocParam                ctermfg=244             cterm=bold
 
 " ### JavaScript Related ######################################################
 hi javaScriptFunction         ctermfg=208             cterm=bold
-hi javaScriptLabel            ctermfg=39              cterm=none
+hi javaScriptLabel            ctermfg=117             cterm=none
 hi javaScriptGlobalObjects    ctermfg=15              cterm=bold
 hi javaScriptDocTags          ctermfg=244             cterm=bold
 

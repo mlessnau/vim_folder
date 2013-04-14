@@ -1,0 +1,2 @@
+syn match phpDocTag contained "@param\|@return"
+hi phpDocTag ctermbg=9

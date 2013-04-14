@@ -283,4 +283,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " }}}
 endif
 
+hi CursorLine term=None cterm=None ctermbg=153
+hi CursorColumn term=None cterm=None ctermbg=153
+hi ColorColumn term=None cterm=None ctermbg=255
+
 " vim: set fdl=0 fdm=marker:

@@ -44,17 +44,13 @@ let MRU_Max_Menu_Entries=20
 map <leader>m :MRU<CR>
 
 " colors
-colorscheme mlessnau                   " colour scheme
+"colorscheme mlessnau
+colorscheme mlessnau_dark
 
 " current line/column
 set cursorline
-"hi CursorLine term=None cterm=None ctermbg=254
-hi CursorLine term=None cterm=None ctermbg=153
 set cursorcolumn
-"hi CursorColumn term=None cterm=None ctermbg=255
-hi CursorColumn term=None cterm=None ctermbg=153
 set colorcolumn=80
-hi ColorColumn term=None cterm=None ctermbg=255
 
 " ==== mappings ===============================================================
 
@@ -64,20 +60,10 @@ map <CR> o
 " [Space] initiates (forward) search in command mode
 map <Space> /
 
-" text indentation
-"nnoremap <Tab> >>_
-"nnoremap <S-Tab> <<_
-"inoremap <S-Tab> <C-D>
-"vnoremap <Tab> >gv
-"vnoremap <S-Tab> <gv
-
 " ctags
 map <leader>+ <C-]>
 map <leader>- <C-O>
 map <leader># :tselect<CR>
-
-" Buffer navigation
-map <leader><leader> <C-w>w
 
 " Tab navigation
 map <leader>l :tabn<CR>
@@ -92,9 +78,6 @@ if $TERM =~ '^screen-256color'
   map <Esc>OF <End>
   map! <Esc>OF <End>
 endif
-
-"if has('ruby')
-"endif
 
 " ==== commands ===============================================================
 

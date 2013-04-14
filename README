@@ -1,4 +1,6 @@
 Install:
 
+        $ git clone https://github.com/mlessnau/vim_folder.git ~/.vim
+
 	$ ln -s ~/.vim/vimrc ~/.vimrc
 

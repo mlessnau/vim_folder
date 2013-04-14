@@ -56,7 +56,7 @@ hi Number                     ctermfg=39
 hi Statement                  ctermfg=208             cterm=bold
 hi Function                   ctermfg=214
 hi PreProc                    ctermfg=207             cterm=bold
-hi Comment                    ctermfg=240
+hi Comment                    ctermfg=240             cterm=none
 hi SpecialComment             ctermfg=240
 hi Type                       ctermfg=208             cterm=bold
 hi Error                      ctermfg=15  ctermbg=9
@@ -67,6 +67,13 @@ hi Keyword                    ctermfg=208
 " ### Messages ################################################################
 hi ErrorMsg                   ctermfg=15  ctermbg=9   cterm=bold
 hi WarningMsg                 ctermfg=196
+
+" ### Doxygen Related (C, C++, Java) ##########################################
+hi doxygenSpecial             ctermfg=244 ctermbg=0   cterm=bold
+hi link doxygenBrief                Comment
+hi link doxygenParam                doxygenSpecial
+hi link doxygenParamName            Comment
+hi link doxygenSpecialMultilineDesc Comment
 
 " ### Python Related ##########################################################
 "hi pythonCoding

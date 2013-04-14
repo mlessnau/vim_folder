@@ -135,6 +135,8 @@ hi phpAssignByRef             ctermfg=15
 hi phpMemberSelector          ctermfg=15
 hi phpComparison              ctermfg=15
 hi phpSCKeyword               ctermfg=9               cterm=bold
+hi phpDocTags                 ctermfg=244             cterm=bold
+hi phpDocParam                ctermfg=244             cterm=bold
 
 " ### JavaScript Related ######################################################
 hi javaScriptFunction         ctermfg=208             cterm=bold

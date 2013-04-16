@@ -28,9 +28,9 @@ hi Visual                     ctermfg=0   ctermbg=231
 " ### Cursor ##################################################################
 hi lCursor                    ctermfg=15  ctermbg=232
 hi Cursor                     ctermfg=15
-hi CursorColumn                           ctermbg=233
+hi CursorColumn                           ctermbg=234
 hi CursorIM                   ctermfg=15
-hi CursorLine                             ctermbg=233 cterm=none
+hi CursorLine                             ctermbg=234 cterm=none
 
 " ### Line/Column Helpers & Panes #############################################
 hi ColorColumn                            ctermbg=0
@@ -155,6 +155,9 @@ hi javaScriptDocTags          ctermfg=244             cterm=bold
 " ### Pmenu ###################################################################
 hi Pmenu                      ctermfg=201 ctermbg=0   cterm=bold
 hi PmenuSel                   ctermfg=15  ctermbg=201 cterm=bold
+
+" ### NERDTree ################################################################
+hi NERDTreeCWD                ctermfg=214             cterm=none
 
 " ------------------------------
 

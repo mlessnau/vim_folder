@@ -27,10 +27,10 @@ syntax on                              " enable syntax highlighting
 filetype plugin indent on              " enable filetype plugins and indentation
 
 " NERDTree
-let g:NERDTreeShowHidden=0             " show hidden files in NERTree by default
+"let g:NERDTreeShowHidden=0             " show hidden files in NERTree by default
 let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
-autocmd VimEnter * NERDTree            " open NERDTree on startup
-autocmd VimEnter * wincmd l            " focus on buffer
+"autocmd VimEnter * NERDTree            " open NERDTree on startup
+"autocmd VimEnter * wincmd l            " focus on buffer
 
 " fugitive
 map <leader>gb :Gblame<CR>

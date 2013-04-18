@@ -28,14 +28,14 @@ hi Visual                     ctermfg=0   ctermbg=231
 " ### Cursor ##################################################################
 hi lCursor                    ctermfg=15  ctermbg=232
 hi Cursor                     ctermfg=15
-hi CursorColumn                           ctermbg=234
+hi CursorColumn                           ctermbg=235
 hi CursorIM                   ctermfg=15
-hi CursorLine                             ctermbg=234 cterm=none
+hi CursorLine                             ctermbg=235 cterm=none
 
 " ### Line/Column Helpers & Panes #############################################
 hi ColorColumn                            ctermbg=0
 hi CursorLineNr               ctermfg=15  ctermbg=0
-hi LineNr                     ctermfg=235 ctermbg=0
+hi LineNr                     ctermfg=238 ctermbg=0
 hi VertSplit                  ctermfg=0   ctermbg=0
 
 " ### Directory Listing #######################################################

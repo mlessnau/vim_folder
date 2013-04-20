@@ -13,12 +13,15 @@ hi Normal                     ctermfg=15  ctermbg=232
 hi NonText                    ctermfg=236 ctermbg=232
 hi Error                      ctermfg=15  ctermbg=9   cterm=bold
 
-" ### Status Line #############################################################
+" ### Status Line & Wildmenu ##################################################
 hi StatusLine                 ctermfg=0   ctermbg=15  cterm=bold
 hi StatusLineNC               ctermfg=0   ctermbg=238 cterm=none
 hi ModeMsg                    ctermfg=0   ctermbg=231 cterm=bold
 hi MoreMsg                    ctermfg=0   ctermbg=231 cterm=bold
 hi Question                   ctermfg=0   ctermbg=231 cterm=bold
+hi WildMenu                   ctermfg=15  ctermbg=201 cterm=bold
+hi Folded                     ctermfg=232 ctermbg=15
+hi FoldColumn                 ctermfg=9   ctermbg=0
 
 " ### Search & Selection ######################################################
 hi IncSearch                  ctermfg=0   ctermbg=214
@@ -136,8 +139,8 @@ hi cppAccess                  ctermfg=9               cterm=bold
 hi phpClasses                 ctermfg=15              cterm=bold
 hi phpDefine                  ctermfg=208             cterm=bold
 hi phpFunctions               ctermfg=214             cterm=bold
-hi phpVarSelector             ctermfg=228
-hi phpIdentifier              ctermfg=228
+hi phpVarSelector             ctermfg=147
+hi phpIdentifier              ctermfg=147
 hi phpSpecialFunction         ctermfg=214             cterm=bold
 hi phpAssignByRef             ctermfg=15
 hi phpMemberSelector          ctermfg=15
@@ -151,6 +154,7 @@ hi javaScriptFunction         ctermfg=208             cterm=bold
 hi javaScriptLabel            ctermfg=117             cterm=none
 hi javaScriptGlobalObjects    ctermfg=15              cterm=bold
 hi javaScriptDocTags          ctermfg=244             cterm=bold
+hi javaScriptOperator         ctermfg=208             cterm=bold
 
 " ### Pmenu ###################################################################
 hi Pmenu                      ctermfg=201 ctermbg=0   cterm=bold
@@ -159,13 +163,10 @@ hi PmenuSel                   ctermfg=15  ctermbg=201 cterm=bold
 " ### NERDTree ################################################################
 hi NERDTreeCWD                ctermfg=214             cterm=none
 
-" ------------------------------
+" ### Diff ####################################################################
+hi DiffAdd                    ctermfg=64  ctermbg=49
+hi DiffDelete                 ctermfg=88  ctermbg=139
+hi DiffChange                             ctermbg=232
+"hi Ignore                   ctermfg=15  ctermbg=233
+"hi DiffText                 ctermfg=15  ctermbg=233
 
-" hi DiffAdd                  ctermfg=15  ctermbg=233
-" hi DiffChange               ctermfg=15  ctermbg=233
-" hi DiffDelete               ctermfg=15  ctermbg=233
-" hi DiffText                 ctermfg=15  ctermbg=233
-" hi FoldColumn               ctermfg=15  ctermbg=233
-" hi Folded                   ctermfg=15  ctermbg=233
-" hi Ignore                   ctermfg=15  ctermbg=233
-" hi WildMenu                 ctermfg=15  ctermbg=233

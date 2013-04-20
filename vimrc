@@ -35,6 +35,11 @@ let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 " fugitive
 map <leader>gb :Gblame<CR>
 map <leader>ge :Gedit<CR>
+map <leader>gd :Gdiff<CR>
+
+" Dict
+let g:dict_hosts=[["dict.org", ["deu-eng", "eng-deu"]]]
+map <leader>d :Dict
 
 " MRU
 "let MRU_File=~/.vim.mru

@@ -3,172 +3,207 @@ set background=dark
 hi clear
 
 if exists("syntax_on")
-   syntax reset
+  syntax reset
 endif
 
 let colors_name = "mlessnau_dark"
 
+let s:blue    = "117"
+let s:green1  = "64"
+let s:green2  = "120"
+let s:grey1   = "0"
+let s:grey2   = "232"
+let s:grey3   = "235"
+let s:grey4   = "238"
+let s:grey5   = "241"
+let s:grey6   = "244"
+let s:grey7   = "247"
+let s:orange1 = "208"
+let s:orange2 = "220"
+let s:pink1   = "201"
+let s:pink2   = "207"
+let s:purple  = "147"
+let s:red1    = "88"
+let s:red2    = "9"
+let s:red3    = "173"
+let s:white   = "15"
+let s:yellow  = "11"
+
+function HiColor(grp, fg, bg, style)
+  let hiCommand = "hi " . a:grp
+  if a:fg != ""
+    let hiCommand = hiCommand . " ctermfg=" . a:fg
+  endif
+  if a:bg != ""
+    let hiCommand = hiCommand . " ctermbg=" . a:bg
+  endif
+  if a:style != ""
+    let hiCommand = hiCommand . " cterm=" . a:style
+  endif
+  exec hiCommand
+endfunction
+
 " ### Global ##################################################################
-hi Normal                     ctermfg=15  ctermbg=232
-hi NonText                    ctermfg=236 ctermbg=232
-hi Error                      ctermfg=15  ctermbg=9   cterm=bold
+call HiColor("Normal",                     s:white,   s:grey2,   "")
+call HiColor("NonText",                    s:grey4,   s:grey2,   "")
+call HiColor("Error",                      s:white,   s:red2,    "bold")
 
 " ### Status Line & Wildmenu ##################################################
-hi StatusLine                 ctermfg=0   ctermbg=15  cterm=bold
-hi StatusLineNC               ctermfg=0   ctermbg=238 cterm=none
-hi ModeMsg                    ctermfg=0   ctermbg=231 cterm=bold
-hi MoreMsg                    ctermfg=0   ctermbg=231 cterm=bold
-hi Question                   ctermfg=0   ctermbg=231 cterm=bold
-hi WildMenu                   ctermfg=15  ctermbg=201 cterm=bold
-hi Folded                     ctermfg=232 ctermbg=15
-hi FoldColumn                 ctermfg=9   ctermbg=0
+call HiColor("StatusLine",                 s:grey1,   s:white,   "bold")
+call HiColor("StatusLineNC",               s:grey1,   s:grey5,   "none")
+call HiColor("ModeMsg",                    s:grey1,   s:white,   "bold")
+call HiColor("MoreMsg",                    s:grey1,   s:white,   "bold")
+call HiColor("Question",                   s:grey1,   s:white,   "bold")
+call HiColor("WildMenu",                   s:white,   s:pink1,   "bold")
+call HiColor("Folded",                     s:grey2,   s:white,   "")
+call HiColor("FoldColumn",                 s:red2,    s:grey1,   "")
 
 " ### Search & Selection ######################################################
-hi IncSearch                  ctermfg=0   ctermbg=214
-hi Search                     ctermfg=0   ctermbg=214
-hi Visual                     ctermfg=0   ctermbg=231
+call HiColor("IncSearch",                  s:grey1,   s:orange2, "")
+call HiColor("Search",                     s:grey1,   s:orange2, "")
+call HiColor("Visual",                     s:grey1,   s:white,   "")
 
 " ### Cursor ##################################################################
-hi lCursor                    ctermfg=15  ctermbg=232
-hi Cursor                     ctermfg=15
-hi CursorColumn                           ctermbg=235
-hi CursorIM                   ctermfg=15
-hi CursorLine                             ctermbg=235 cterm=none
+call HiColor("lCursor",                    s:white,   s:grey2,   "")
+call HiColor("Cursor",                     s:white,   "",        "")
+call HiColor("CursorColumn",               "",        s:grey3,   "")
+call HiColor("CursorIM",                   s:white,   "",        "")
+call HiColor("CursorLine",                 "",        s:grey3,   "none")
 
 " ### Line/Column Helpers & Panes #############################################
-hi ColorColumn                            ctermbg=0
-hi CursorLineNr               ctermfg=15  ctermbg=0
-hi LineNr                     ctermfg=238 ctermbg=0
-hi VertSplit                  ctermfg=0   ctermbg=0
+call HiColor("ColorColumn",                "",        s:grey1,   "")
+call HiColor("CursorLineNr",               s:white,   s:grey1,   "")
+call HiColor("LineNr",                     s:grey5,   s:grey1,   "")
+call HiColor("VertSplit",                  s:grey1,   s:grey1,   "")
 
 " ### Directory Listing #######################################################
-hi Directory                  ctermfg=117
+call HiColor("Directory",                  s:blue,    "",        "")
 
-" ### Specials ################################################################
-hi Todo                       ctermfg=15  ctermbg=201
-hi Title                      ctermfg=15
-hi Special                    ctermfg=9               cterm=bold
-hi Operator                   ctermfg=15
-hi Delimiter                  ctermfg=15
-hi SpecialKey                 ctermfg=238
+" ### Specials ######################## ########################################
+call HiColor("Todo",                       s:white,   s:pink1,   "")
+call HiColor("Title",                      s:white,   "",        "")
+call HiColor("Special",                    s:red2,    "",        "bold")
+call HiColor("Operator",                   s:white,   "",        "")
+call HiColor("Delimiter",                  s:white,   "",        "")
+call HiColor("SpecialKey",                 s:grey5,   "",        "")
 
 " ### Syntax Elements #########################################################
-hi String                     ctermfg=120
-hi Constant                   ctermfg=117
-hi Number                     ctermfg=117
-hi Statement                  ctermfg=208             cterm=bold
-hi Function                   ctermfg=214
-hi PreProc                    ctermfg=207             cterm=bold
-hi Comment                    ctermfg=240             cterm=none
-hi SpecialComment             ctermfg=240
-hi Type                       ctermfg=208             cterm=bold
-hi Error                      ctermfg=15  ctermbg=9
-hi Identifier                 ctermfg=15              cterm=bold
-"hi Label                      ctermfg=9
-hi Keyword                    ctermfg=208
+call HiColor("String",                     s:green2,  "",       "")
+call HiColor("Constant",                   s:blue,    "",       "")
+call HiColor("Number",                     s:blue,    "",       "")
+call HiColor("Statement",                  s:orange1, "",       "bold")
+call HiColor("Function",                   s:orange2, "",       "")
+call HiColor("PreProc",                    s:pink2,   "",       "bold")
+call HiColor("Comment",                    s:grey6,   "",       "none")
+call HiColor("SpecialComment",             s:grey6,   "",       "")
+call HiColor("Type",                       s:orange1, "",       "bold")
+call HiColor("Error",                      s:white,   s:red2,   "")
+call HiColor("Identifier",                 s:white,   "",       "bold")
+call HiColor("Keyword",                    s:orange1, "",       "")
+"Label
 
 " ### Messages ################################################################
-hi ErrorMsg                   ctermfg=15  ctermbg=9   cterm=bold
-hi WarningMsg                 ctermfg=196
+call HiColor("ErrorMsg",                   s:white,   s:red2,   "bold")
+call HiColor("WarningMsg",                 s:red2,    "",       "")
 
 " ### Doxygen Related (C, C++, Java) ##########################################
-hi doxygenSpecial             ctermfg=244 ctermbg=0   cterm=bold
+call HiColor("doxygenSpecial",             s:grey7,   s:grey1,  "bold")
 hi link doxygenBrief                Comment
 hi link doxygenParam                doxygenSpecial
 hi link doxygenParamName            Comment
 hi link doxygenSpecialMultilineDesc Comment
 
 " ### Python Related ##########################################################
-"hi pythonCoding
-"hi pythonRun
-"hi pythonBuiltinObj
-"hi pythonBuiltinFunc
-"hi pythonException
-"hi pythonExClass
-"hi pythonSpaceError
-"hi pythonDocTest
-"hi pythonDocTest2
-"hi pythonFunction
-"hi pythonClass
+"pythonCoding
+"pythonRun
+"pythonBuiltinObj
+"pythonBuiltinFunc
+"pythonException
+"pythonExClass
+"pythonSpaceError
+"pythonDocTest
+"pythonDocTest2
+"pythonFunction
+"pythonClass
 
 " ### HTML Related ############################################################
-hi htmlArg                    ctermfg=214             cterm=bold
-hi htmlTag                    ctermfg=208
-hi htmlTagName                ctermfg=208             cterm=bold
-hi htmlSpecialTag             ctermfg=208
-hi htmlSpecialTagName         ctermfg=208             cterm=bold
-hi htmlEndTag                 ctermfg=208
-hi htmlBold                                           cterm=bold
-hi htmlBoldItalic                                     cterm=bold,italic
-hi htmlBoldUnderline                                  cterm=underline
-hi htmlBoldUnderlineItalic                            cterm=bold,underline,italic
-hi htmlItalic                                         cterm=italic
-hi htmlLink                   ctermfg=15
-hi htmlUnderline                                      cterm=underline
-hi htmlUnderlineItalic                                cterm=underline,italic
+call HiColor("htmlArg",                    s:orange2, "",       "bold")
+call HiColor("htmlTag",                    s:orange1, "",       "")
+call HiColor("htmlTagName",                s:orange1, "",       "bold")
+call HiColor("htmlSpecialTag",             s:orange1, "",       "")
+call HiColor("htmlSpecialTagName",         s:orange1, "",       "bold")
+call HiColor("htmlEndTag",                 s:orange1, "",       "")
+call HiColor("htmlBold",                   "",        "",       "bold")
+call HiColor("htmlBoldItalic",             "",        "",       "bold,italic")
+call HiColor("htmlBoldUnderline",          "",        "",       "underline")
+call HiColor("htmlBoldUnderlineItalic",    "",        "",       "bold,underline,italic")
+call HiColor("htmlItalic",                 "",        "",       "italic")
+call HiColor("htmlLink",                   s:white,   "",       "")
+call HiColor("htmlUnderline",              "",        "",       "underline")
+call HiColor("htmlUnderlineItalic",        "",        "",       "underline,italic")
 
 " ### Ruby Related ############################################################
-hi rubyAccess                 ctermfg=9               cterm=bold
-hi rubyBeginEnd               ctermfg=208             cterm=bold
-hi rubyBlockParameter         ctermfg=117
-hi rubyClass                  ctermfg=208             cterm=bold
-hi rubyConditional            ctermfg=208             cterm=bold
-hi rubyConstant               ctermfg=15              cterm=bold
-hi rubyControl                ctermfg=208             cterm=bold
-hi rubyDefine                 ctermfg=208             cterm=bold
-hi rubyGlobalVariable         ctermfg=11              cterm=bold
-hi rubyInstanceVariable       ctermfg=11
-hi rubyInterpolationDelimiter ctermfg=207
-hi rubyKeyword                ctermfg=208             cterm=bold
-hi rubyString                 ctermfg=120
-hi rubyStringDelimiter        ctermfg=120
-hi rubySymbol                 ctermfg=117
-hi rubyRegexp                 ctermfg=207
-hi rubyRegexpDelimiter        ctermfg=207
-hi rubyRegexpSpecial          ctermfg=207
-hi rubyInclude                ctermfg=208             cterm=bold
+call HiColor("rubyAccess",                 s:red2,    "",       "bold")
+call HiColor("rubyBeginEnd",               s:orange1, "",       "bold")
+call HiColor("rubyBlockParameter",         s:blue,    "",       "")
+call HiColor("rubyClass",                  s:orange1, "",       "bold")
+call HiColor("rubyConditional",            s:orange1, "",       "bold")
+call HiColor("rubyConstant",               s:white,   "",       "bold")
+call HiColor("rubyControl",                s:orange1, "",       "bold")
+call HiColor("rubyDefine",                 s:orange1, "",       "bold")
+call HiColor("rubyGlobalVariable",         s:yellow,  "",       "bold")
+call HiColor("rubyInstanceVariable",       s:yellow,  "",       "")
+call HiColor("rubyInterpolationDelimiter", s:pink2,   "",       "")
+call HiColor("rubyKeyword",                s:orange1, "",       "bold")
+call HiColor("rubyString",                 s:green2,  "",       "")
+call HiColor("rubyStringDelimiter",        s:green2,  "",       "")
+call HiColor("rubySymbol",                 s:blue,    "",       "")
+call HiColor("rubyRegexp",                 s:pink2,   "",       "")
+call HiColor("rubyRegexpDelimiter",        s:pink2,   "",       "")
+call HiColor("rubyRegexpSpecial",          s:pink2,   "",       "")
+call HiColor("rubyInclude",                s:orange1, "",       "bold")
 
 " ### Vim Related #############################################################
-hi vimCommand                 ctermfg=208             cterm=bold
+call HiColor("vimCommand",                 s:orange1, "",       "bold")
 
 " ### C/C++ Related ###########################################################
-hi cConditional               ctermfg=208             cterm=bold
-hi cppAccess                  ctermfg=9               cterm=bold
+call HiColor("cConditional",               s:orange1, "",       "bold")
+call HiColor("cppAccess",                  s:red2,    "",       "bold")
 
 " ### PHP related #############################################################
-hi phpClasses                 ctermfg=15              cterm=bold
-hi phpDefine                  ctermfg=208             cterm=bold
-hi phpFunctions               ctermfg=214             cterm=bold
-hi phpVarSelector             ctermfg=147
-hi phpIdentifier              ctermfg=147
-hi phpSpecialFunction         ctermfg=214             cterm=bold
-hi phpAssignByRef             ctermfg=15
-hi phpMemberSelector          ctermfg=15
-hi phpComparison              ctermfg=15
-hi phpSCKeyword               ctermfg=9               cterm=bold
-hi phpDocTags                 ctermfg=244             cterm=bold
-hi phpDocParam                ctermfg=244             cterm=bold
+call HiColor("phpClasses",                 s:white,   "",       "bold")
+call HiColor("phpDefine",                  s:orange1, "",       "bold")
+call HiColor("phpFunctions",               s:orange2, "",       "")
+call HiColor("phpVarSelector",             s:purple,  "",       "")
+call HiColor("phpIdentifier",              s:purple,  "",       "")
+call HiColor("phpSpecialFunction",         s:orange2, "",       "")
+call HiColor("phpAssignByRef",             s:white,   "",       "")
+call HiColor("phpMemberSelector",          s:white,   "",       "")
+call HiColor("phpComparison",              s:white,   "",       "")
+call HiColor("phpSCKeyword",               s:red2,    "",       "bold")
+call HiColor("phpDocTags",                 s:grey7,   "",       "bold")
+call HiColor("phpDocParam",                s:grey7,   "",       "bold")
 
 " ### JavaScript Related ######################################################
-hi javaScriptFunction         ctermfg=208             cterm=bold
-hi javaScriptLabel            ctermfg=117             cterm=none
-hi javaScriptGlobalObjects    ctermfg=15              cterm=bold
-hi javaScriptDocTags          ctermfg=244             cterm=bold
-hi javaScriptOperator         ctermfg=208             cterm=bold
+call HiColor("javaScriptFunction",         s:orange1, "",       "bold")
+call HiColor("javaScriptLabel",            s:blue,    "",       "none")
+call HiColor("javaScriptGlobalObjects",    s:white,   "",       "bold")
+call HiColor("javaScriptDocTags",          s:grey7,   "",       "bold")
+call HiColor("javaScriptOperator",         s:orange1, "",       "bold")
 
 " ### Pmenu ###################################################################
-hi Pmenu                      ctermfg=201 ctermbg=0   cterm=bold
-hi PmenuSel                   ctermfg=15  ctermbg=201 cterm=bold
+call HiColor("Pmenu",                      s:pink1,   s:grey1,  "bold")
+call HiColor("PmenuSel",                   s:white,   s:pink1,  "bold")
 
 " ### NERDTree ################################################################
-hi NERDTreeCWD                ctermfg=214             cterm=none
-hi NERDTreeRO                 ctermfg=9
-hi NERDTreeFlag               ctermfg=15
+call HiColor("NERDTreeCWD",                s:orange2, "",       "none")
+call HiColor("NERDTreeRO",                 s:red2,    "",       "")
+call HiColor("NERDTreeFlag",               s:white,   "",       "")
 
 " ### Diff ####################################################################
-hi DiffAdd                    ctermfg=64  ctermbg=49
-hi DiffDelete                 ctermfg=88  ctermbg=139
-hi DiffChange                             ctermbg=232
-"hi Ignore                   ctermfg=15  ctermbg=233
-"hi DiffText                 ctermfg=15  ctermbg=233
+call HiColor("DiffAdd",                    s:green1,  s:green2, "")
+call HiColor("DiffDelete",                 s:red1,    s:red3,   "")
+call HiColor("DiffChange",                 "",        s:grey2,  "")
+"Ignore
+"DiffText
 

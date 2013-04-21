@@ -23,6 +23,9 @@ set tabstop=4                          " tab stop width
 set bs=indent,eol,start                " backspace over everything including linebreaks and indentation
 set lazyredraw                         " disable rendering when macros are executed
 let mapleader=","                      " redefine <leader>
+set cursorline
+set cursorcolumn
+set colorcolumn=80
 syntax on                              " enable syntax highlighting
 filetype plugin indent on              " enable filetype plugins and indentation
 
@@ -35,6 +38,14 @@ let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 " fugitive
 map <leader>gb :Gblame<CR>
 map <leader>ge :Gedit<CR>
+map <leader>gd :Gdiff<CR>
+
+" Dict
+let g:dict_hosts=[["dict.org", ["deu-eng", "eng-deu"]]]
+map <leader>d :Dict
+
+" EasyGrep
+map <leader>gr :Grep -r
 
 " MRU
 "let MRU_File=~/.vim.mru
@@ -44,18 +55,10 @@ let MRU_Max_Menu_Entries=20
 map <leader>m :MRU<CR>
 
 " colors
-"colorscheme mlessnau
 colorscheme mlessnau_dark
 
-" current line/column
-set cursorline
-set cursorcolumn
-set colorcolumn=80
-
-" ==== mappings ===============================================================
-
 cmap w!! %!sudo tee > /dev/null %
-map <CR> o
+"map <CR> o
 
 " [Space] initiates (forward) search in command mode
 map <Space> /
@@ -67,6 +70,7 @@ map <leader># :tselect<CR>
 
 " ctrlp
 map <leader><leader> <c-p>
+let g:ctrlp_working_path_mode = ''
 
 " Tab navigation
 map <leader>l :tabn<CR>
@@ -81,8 +85,6 @@ if $TERM =~ '^screen-256color'
   map <Esc>OF <End>
   map! <Esc>OF <End>
 endif
-
-" ==== commands ===============================================================
 
 " copy contents between vim sessions
 nmap <leader>w V:w! /tmp/snippet<CR>

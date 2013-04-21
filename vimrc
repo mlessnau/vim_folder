@@ -23,6 +23,9 @@ set tabstop=4                          " tab stop width
 set bs=indent,eol,start                " backspace over everything including linebreaks and indentation
 set lazyredraw                         " disable rendering when macros are executed
 let mapleader=","                      " redefine <leader>
+set cursorline
+set cursorcolumn
+set colorcolumn=80
 syntax on                              " enable syntax highlighting
 filetype plugin indent on              " enable filetype plugins and indentation
 
@@ -41,6 +44,9 @@ map <leader>gd :Gdiff<CR>
 let g:dict_hosts=[["dict.org", ["deu-eng", "eng-deu"]]]
 map <leader>d :Dict
 
+" EasyGrep
+map <leader>gr :Grep -r
+
 " MRU
 "let MRU_File=~/.vim.mru
 let MRU_Max_Entries=20
@@ -49,18 +55,12 @@ let MRU_Max_Menu_Entries=20
 map <leader>m :MRU<CR>
 
 " colors
-"colorscheme mlessnau
 colorscheme mlessnau_dark
-
-" current line/column
-set cursorline
-set cursorcolumn
-set colorcolumn=80
 
 " ==== mappings ===============================================================
 
 cmap w!! %!sudo tee > /dev/null %
-map <CR> o
+"map <CR> o
 
 " [Space] initiates (forward) search in command mode
 map <Space> /

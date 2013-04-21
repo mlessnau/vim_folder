@@ -57,8 +57,6 @@ map <leader>m :MRU<CR>
 " colors
 colorscheme mlessnau_dark
 
-" ==== mappings ===============================================================
-
 cmap w!! %!sudo tee > /dev/null %
 "map <CR> o
 
@@ -72,6 +70,7 @@ map <leader># :tselect<CR>
 
 " ctrlp
 map <leader><leader> <c-p>
+let g:ctrlp_working_path_mode = ''
 
 " Tab navigation
 map <leader>l :tabn<CR>
@@ -86,8 +85,6 @@ if $TERM =~ '^screen-256color'
   map <Esc>OF <End>
   map! <Esc>OF <End>
 endif
-
-" ==== commands ===============================================================
 
 " copy contents between vim sessions
 nmap <leader>w V:w! /tmp/snippet<CR>

@@ -1,1 +1,1 @@
-die(sprintf('%s:%d %s', __FILE__, __LINE__, print_r('${1}', true)));
+die(sprintf("%s:%d\n<pre style=\"background-color:#444; color:#CCC;\">\n%s\n</pre>", __FILE__, __LINE__, print_r(${1}, true)));

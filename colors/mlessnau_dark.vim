@@ -185,6 +185,7 @@ call HiColor("phpDocTags",                 s:grey7,   "",       "bold")
 call HiColor("phpDocParam",                s:grey7,   "",       "bold")
 
 " ### JavaScript Related ######################################################
+call HiColor("javaScript",                 s:white,   "",       "")
 call HiColor("javaScriptFunction",         s:orange1, "",       "bold")
 call HiColor("javaScriptLabel",            s:blue,    "",       "none")
 call HiColor("javaScriptGlobalObjects",    s:white,   "",       "bold")

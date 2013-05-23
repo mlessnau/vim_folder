@@ -191,6 +191,7 @@ call HiColor("javaScriptLabel",            s:blue,    "",       "none")
 call HiColor("javaScriptGlobalObjects",    s:white,   "",       "bold")
 call HiColor("javaScriptDocTags",          s:grey7,   "",       "bold")
 call HiColor("javaScriptOperator",         s:orange1, "",       "bold")
+call HiColor("javaScriptRegexpString",     s:pink2,   "",       "")
 
 " ### Pmenu ###################################################################
 call HiColor("Pmenu",                      s:pink1,   s:grey1,  "bold")

@@ -3,6 +3,7 @@ au BufNewFile,BufRead *.ctp        set ft=php
 au BufNewFile,BufRead *.phtml      set ft=php
 au BufNewFile,BufRead *.ui         set ft=ruby
 au BufNewFile,BufRead Fudgefile    set ft=ruby
+au BufNewFile,BufRead Capfile      set ft=ruby
 au BufNewFile,BufRead Gemfile      set ft=ruby
 au BufNewFile,BufRead Gemfile.lock set ft=ruby
 au BufNewFile,BufRead Guardfile    set ft=ruby

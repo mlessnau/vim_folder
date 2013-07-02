@@ -1,11 +1,21 @@
 function! BsMoveRight()
-  let cursor_x = col('.')
+  let l:col = col('.')
+  let l:line = line('.')
+
   execute "normal $"
-  call cursor(line('.'), cursor_x + float2nr(ceil((col('.') - cursor_x) * 0.5)))
+  let l:colMax = col('.')
+
+  let l:colNext = l:col + float2nr(ceil((l:colMax - l:col) * 0.5))
+
+  call cursor(l:line, l:colNext)
 endfunction
 
 function! BsMoveLeft()
-  call cursor(line('.'), col('.') - float2nr(ceil((col('.') - 1) * 0.5)))
+  let l:col = col('.')
+  let l:line = line('.')
+  let l:colNext = l:col - float2nr(ceil((l:col - 1) * 0.5))
+
+  call cursor(l:line, l:colNext)
 endfunction
 
 map <Tab> :call BsMoveRight()<CR>

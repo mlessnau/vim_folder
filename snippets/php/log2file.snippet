@@ -1,0 +1,2 @@
+file_put_contents('/tmp/php.log', __FILE__ . ':' . __LINE__ . "\n\n" . print_r(${1}, true) . "\n" . str_repeat('-', 80) . "\n", FILE_APPEND);
+${2}

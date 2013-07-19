@@ -8,6 +8,7 @@ au BufNewFile,BufRead Gemfile      set ft=ruby
 au BufNewFile,BufRead Gemfile.lock set ft=ruby
 au BufNewFile,BufRead Guardfile    set ft=ruby
 au BufNewFile,BufRead Rakefile     set ft=ruby
+au BufNewFile,BufRead *.thor       set ft=ruby
 au BufRead,BufNewFile *.less       set ft=scss
 au BufRead,BufNewFile *.sah        set ft=javascript
 au BufRead,BufNewFile *.scss       set ft=scss

@@ -126,6 +126,10 @@ hi link doxygenSpecialMultilineDesc Comment
 "pythonFunction
 "pythonClass
 
+" ### XML Related #############################################################
+call HiColor("xmlTagName",                 s:orange2, "",       "bold")
+call HiColor("xmlEndTag",                  s:orange2, "",       "bold")
+
 " ### HTML Related ############################################################
 call HiColor("htmlArg",                    s:orange2, "",       "bold")
 call HiColor("htmlTag",                    s:orange1, "",       "")

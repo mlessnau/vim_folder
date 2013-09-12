@@ -16,7 +16,7 @@ set ttymouse=xterm2                    " mouse support for xterm
 set mouse=a                            " enable mouse support
 set hlsearch                           " highlight search matches
 set incsearch                          " search matches as you type
-set noexpandtab                        " use tabs
+set expandtab                          " use tabs
 set smarttab                           " use smart tabbing
 set shiftwidth=4                       " tab width (indentation)
 set tabstop=4                          " tab stop width

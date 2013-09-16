@@ -1,6 +1,6 @@
-# $1
+# $1Test
 # @author Michael Leßnau
-class ${1:ClassName}Test extends PHPUnit_Framework_TestCase
+class ${1:ClassName}Test extends \PHPUnit_Framework_TestCase
 {
 	protected $instance;
 
@@ -9,7 +9,5 @@ class ${1:ClassName}Test extends PHPUnit_Framework_TestCase
 		$this->instance = new $1(${2});
 	}
 
-	protected function tearDown()
-	{
-	}${3}
-}${4}
+	${3}
+}

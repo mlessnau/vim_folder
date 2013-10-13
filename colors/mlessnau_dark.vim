@@ -131,8 +131,9 @@ call HiColor("xmlTagName",                 s:orange2, "",       "bold")
 call HiColor("xmlEndTag",                  s:orange2, "",       "bold")
 
 " ### HTML Related ############################################################
-call HiColor("htmlArg",                    s:orange2, "",       "bold")
+call HiColor("htmlArg",                    s:orange1, "",       "")
 call HiColor("htmlTag",                    s:orange1, "",       "")
+call HiColor("htmlTagN",                   s:orange1, "",       "bold")
 call HiColor("htmlTagName",                s:orange1, "",       "bold")
 call HiColor("htmlSpecialTag",             s:orange1, "",       "")
 call HiColor("htmlSpecialTagName",         s:orange1, "",       "bold")
@@ -191,6 +192,9 @@ call HiColor("phpComparison",              s:white,   "",       "")
 call HiColor("phpSCKeyword",               s:red2,    "",       "bold")
 call HiColor("phpDocTags",                 s:grey7,   "",       "bold")
 call HiColor("phpDocParam",                s:grey7,   "",       "bold")
+
+" ### JavaScript Related ######################################################
+call HiColor("javaOperator",               s:orange1, "",       "bold")
 
 " ### JavaScript Related ######################################################
 call HiColor("javaScript",                 s:white,   "",       "")

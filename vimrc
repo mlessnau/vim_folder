@@ -35,6 +35,10 @@ let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 "autocmd VimEnter * NERDTree            " open NERDTree on startup
 "autocmd VimEnter * wincmd l            " focus on buffer
 
+" block shift
+vmap <C-k> :call BlockShiftUp()<CR>
+vmap <C-j> :call BlockShiftDown()<CR>
+
 " fugitive
 map <leader>gb :Gblame<CR>
 map <leader>ge :Gedit<CR>

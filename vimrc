@@ -12,8 +12,8 @@ set whichwrap+=<,>,[,]                 " enable line warping when using arrow ke
 set list lcs=tab:·\ ,trail:¶,eol:¬     " whitespace markers
 set title                              " set terminal title
 set ttyfast                            " enable fast TTY support
-set ttymouse=xterm2                    " mouse support for xterm
 set mouse=a                            " enable mouse support
+set ttymouse=xterm2                    " mouse support for xterm
 set hlsearch                           " highlight search matches
 set incsearch                          " search matches as you type
 set expandtab                          " use tabs
@@ -36,6 +36,8 @@ let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 "autocmd VimEnter * wincmd l            " focus on buffer
 
 " block shift
+map <C-k> :call BlockShiftUp()<CR><Esc><Esc>
+map <C-j> :call BlockShiftDown()<CR><Esc><Esc>
 vmap <C-k> :call BlockShiftUp()<CR>
 vmap <C-j> :call BlockShiftDown()<CR>
 
@@ -43,13 +45,6 @@ vmap <C-j> :call BlockShiftDown()<CR>
 map <leader>gb :Gblame<CR>
 map <leader>ge :Gedit<CR>
 map <leader>gd :Gdiff<CR>
-
-" Dict
-let g:dict_hosts=[["dict.org", ["deu-eng", "eng-deu"]]]
-map <leader>d :Dict
-
-" EasyGrep
-map <leader>gr :Grep -r
 
 " MRU
 "let MRU_File=~/.vim.mru

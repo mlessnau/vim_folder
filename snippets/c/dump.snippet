@@ -1,0 +1,8 @@
+// --------------
+unsigned int _n_ = sizeof(${1:var}), _i_ = 0;
+printf("\n$1\n  size: %d Byte(s)\n  data:", _n_);
+for (_i_ = 0; _i_ < _n_; ++_i_) {
+	printf(" %x", ((unsigned char *)&$1)[_i_]);
+}
+printf("\n");
+// --------------

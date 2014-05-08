@@ -10,19 +10,20 @@ let colors_name = "mlessnau_white"
 
 let s:bg      = "15"  " Background (default)
 let s:fg      = "0"   " Foreground (default)
-let s:kw1     = "19"  " Keyword 1
-let s:kw2     = "19"  " Keyword 2
-let s:string  = "28"  " String
+let s:kw      = "25"  " Keyword
+let s:string  = "196" " String
 let s:fn      = "0"   " Function
-let s:phpVar  = "130" " PHP Variable
+let s:phpVar  = "52"  " PHP Variable
 let s:error   = "9"   " Error
+let s:comment = "28"
+let s:number  = "25"
 
 let s:green1  = "64"
 let s:grey1   = "0"
-let s:grey3   = "235"
+let s:grey2   = "248"
+let s:grey3   = "252"
 let s:grey4   = "238"
 let s:grey5   = "241"
-let s:grey6   = "244"
 let s:grey7   = "247"
 let s:pink1   = "201"
 let s:pink2   = "207"
@@ -72,35 +73,35 @@ call HiColor("CursorIM",                   s:fg,      "",        "")
 call HiColor("CursorLine",                 "",        s:grey3,   "none")
 
 " ### Line/Column Helpers & Panes #############################################
-call HiColor("ColorColumn",                "",        s:grey1,   "")
-call HiColor("CursorLineNr",               s:fg,      s:grey1,   "")
-call HiColor("LineNr",                     s:grey5,   s:grey1,   "")
-call HiColor("VertSplit",                  s:grey1,   s:grey1,   "")
+call HiColor("ColorColumn",                "",        s:grey2,   "")
+call HiColor("CursorLineNr",               s:fg,      s:grey2,   "")
+call HiColor("LineNr",                     s:bg,      s:grey2,   "")
+call HiColor("VertSplit",                  s:grey2,   s:grey2,   "")
 
 " ### Directory Listing #######################################################
-call HiColor("Directory",                  s:kw2,     "",        "")
+call HiColor("Directory",                  s:kw,      "",        "")
 
 " ### Specials ######################## ########################################
 call HiColor("Todo",                       s:fg,      s:pink1,   "")
 call HiColor("Title",                      s:fg,      "",        "")
-call HiColor("Special",                    s:kw1,     "",        "bold")
+call HiColor("Special",                    s:kw,      "",        "")
 call HiColor("Operator",                   s:fg,      "",        "")
 call HiColor("Delimiter",                  s:fg,      "",        "")
 call HiColor("SpecialKey",                 s:grey5,   "",        "")
 
 " ### Syntax Elements #########################################################
 call HiColor("String",                     s:string,  "",       "")
-call HiColor("Constant",                   s:kw2,     "",       "")
-call HiColor("Number",                     s:kw2,     "",       "")
-call HiColor("Statement",                  s:kw1,     "",       "bold")
+call HiColor("Constant",                   s:kw,      "",       "")
+call HiColor("Number",                     s:number,  "",       "")
+call HiColor("Statement",                  s:kw,      "",       "")
 call HiColor("Function",                   s:fn,      "",       "")
 call HiColor("PreProc",                    s:pink2,   "",       "bold")
-call HiColor("Comment",                    s:grey6,   "",       "none")
-call HiColor("SpecialComment",             s:grey6,   "",       "")
-call HiColor("Type",                       s:kw1,     "",       "bold")
+call HiColor("Comment",                    s:comment, "",       "none")
+call HiColor("SpecialComment",             s:comment, "",       "")
+call HiColor("Type",                       s:kw,      "",       "")
 call HiColor("Error",                      s:fg,      s:error,  "")
 call HiColor("Identifier",                 s:fg,      "",       "bold")
-call HiColor("Keyword",                    s:kw1,     "",       "")
+call HiColor("Keyword",                    s:kw,      "",       "")
 "Label
 
 " ### Messages ################################################################
@@ -129,11 +130,11 @@ hi link doxygenSpecialMultilineDesc Comment
 
 " ### HTML Related ############################################################
 call HiColor("htmlArg",                    s:fn,      "",       "bold")
-call HiColor("htmlTag",                    s:kw1,     "",       "")
-call HiColor("htmlTagName",                s:kw1,     "",       "bold")
-call HiColor("htmlSpecialTag",             s:kw1,     "",       "")
-call HiColor("htmlSpecialTagName",         s:kw1,     "",       "bold")
-call HiColor("htmlEndTag",                 s:kw1,     "",       "")
+call HiColor("htmlTag",                    s:kw,      "",       "")
+call HiColor("htmlTagName",                s:kw,      "",       "")
+call HiColor("htmlSpecialTag",             s:kw,      "",       "")
+call HiColor("htmlSpecialTagName",         s:kw,      "",       "")
+call HiColor("htmlEndTag",                 s:kw,      "",       "")
 call HiColor("htmlBold",                   "",        "",       "bold")
 call HiColor("htmlBoldItalic",             "",        "",       "bold,italic")
 call HiColor("htmlBoldUnderline",          "",        "",       "underline")
@@ -144,55 +145,56 @@ call HiColor("htmlUnderline",              "",        "",       "underline")
 call HiColor("htmlUnderlineItalic",        "",        "",       "underline,italic")
 
 " ### Ruby Related ############################################################
-call HiColor("rubyAccess",                 s:kw1,     "",       "bold")
-call HiColor("rubyBeginEnd",               s:kw1,     "",       "bold")
-call HiColor("rubyBlockParameter",         s:kw2,     "",       "")
-call HiColor("rubyClass",                  s:kw1,     "",       "bold")
-call HiColor("rubyConditional",            s:kw1,     "",       "bold")
+call HiColor("rubyAccess",                 s:kw,      "",       "")
+call HiColor("rubyBeginEnd",               s:kw,      "",       "")
+call HiColor("rubyBlockParameter",         s:kw,      "",       "")
+call HiColor("rubyClass",                  s:kw,      "",       "")
+call HiColor("rubyConditional",            s:kw,      "",       "")
 call HiColor("rubyConstant",               s:fg,      "",       "bold")
-call HiColor("rubyControl",                s:kw1,     "",       "bold")
-call HiColor("rubyDefine",                 s:kw1,     "",       "bold")
+call HiColor("rubyControl",                s:kw,      "",       "")
+call HiColor("rubyDefine",                 s:kw,      "",       "")
 call HiColor("rubyGlobalVariable",         s:yellow,  "",       "bold")
 call HiColor("rubyInstanceVariable",       s:yellow,  "",       "")
 call HiColor("rubyInterpolationDelimiter", s:pink2,   "",       "")
-call HiColor("rubyKeyword",                s:kw1,     "",       "bold")
+call HiColor("rubyKeyword",                s:kw,      "",       "")
 call HiColor("rubyString",                 s:string,  "",       "")
 call HiColor("rubyStringDelimiter",        s:string,  "",       "")
-call HiColor("rubySymbol",                 s:kw2,     "",       "")
+call HiColor("rubySymbol",                 s:kw,      "",       "")
 call HiColor("rubyRegexp",                 s:pink2,   "",       "")
 call HiColor("rubyRegexpDelimiter",        s:pink2,   "",       "")
 call HiColor("rubyRegexpSpecial",          s:pink2,   "",       "")
-call HiColor("rubyInclude",                s:kw1,     "",       "bold")
+call HiColor("rubyInclude",                s:kw,      "",       "")
 
 " ### Vim Related #############################################################
-call HiColor("vimCommand",                 s:kw1,     "",       "bold")
+call HiColor("vimCommand",                 s:kw,      "",       "")
 
 " ### C/C++ Related ###########################################################
-call HiColor("cConditional",               s:kw1,     "",       "bold")
-call HiColor("cppAccess",                  s:kw1,     "",       "bold")
+call HiColor("cConditional",               s:kw,      "",       "")
+call HiColor("cppAccess",                  s:kw,      "",       "")
 
 " ### PHP related #############################################################
 call HiColor("phpClasses",                 s:fg,      "",       "bold")
-call HiColor("phpDefine",                  s:kw1,     "",       "bold")
+call HiColor("phpDefine",                  s:kw,      "",       "")
 call HiColor("phpFunctions",               s:fn,      "",       "")
-call HiColor("phpVarSelector",             s:phpVar,  "",       "bold")
-call HiColor("phpIdentifier",              s:phpVar,  "",       "bold")
+call HiColor("phpVarSelector",             s:phpVar,  "",       "")
+call HiColor("phpIdentifier",              s:phpVar,  "",       "")
+call HiColor("phpInclude",                 s:kw,      "",       "")
 call HiColor("phpMethodsVar",              s:fg,      "",       "")
 call HiColor("phpSpecialFunction",         s:fn,      "",       "")
 call HiColor("phpAssignByRef",             s:fg,      "",       "")
 call HiColor("phpMemberSelector",          s:fg,      "",       "")
 call HiColor("phpComparison",              s:fg,      "",       "")
-call HiColor("phpSCKeyword",               s:kw1,     "",       "bold")
-call HiColor("phpDocTags",                 s:grey7,   "",       "bold")
-call HiColor("phpDocParam",                s:grey7,   "",       "bold")
+call HiColor("phpSCKeyword",               s:kw,      "",       "")
+call HiColor("phpDocTags",                 s:comment, "",       "")
+call HiColor("phpDocParam",                s:comment, "",       "")
 
 " ### JavaScript Related ######################################################
 call HiColor("javaScript",                 s:fg,      "",       "")
-call HiColor("javaScriptFunction",         s:kw1,     "",       "bold")
-call HiColor("javaScriptLabel",            s:kw2,     "",       "none")
+call HiColor("javaScriptFunction",         s:kw,      "",       "")
+call HiColor("javaScriptLabel",            s:kw,      "",       "")
 call HiColor("javaScriptGlobalObjects",    s:fg,      "",       "bold")
 call HiColor("javaScriptDocTags",          s:grey7,   "",       "bold")
-call HiColor("javaScriptOperator",         s:kw1,     "",       "bold")
+call HiColor("javaScriptOperator",         s:kw,      "",       "")
 call HiColor("javaScriptRegexpString",     s:pink2,   "",       "")
 
 " ### Pmenu ###################################################################
@@ -201,7 +203,7 @@ call HiColor("PmenuSel",                   s:fg,      s:pink1,  "bold")
 
 " ### NERDTree ################################################################
 call HiColor("NERDTreeCWD",                s:fn,      "",       "none")
-call HiColor("NERDTreeRO",                 s:kw1,     "",       "")
+call HiColor("NERDTreeRO",                 s:kw,      "",       "")
 call HiColor("NERDTreeFlag",               s:fg,      "",       "")
 
 " ### Diff ####################################################################

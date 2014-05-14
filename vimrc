@@ -54,7 +54,7 @@ let MRU_Max_Menu_Entries=20
 map <leader>m :MRU<CR>
 
 " colors
-colorscheme mlessnau_white
+colorscheme mlessnau_dark
 
 cmap w!! %!sudo tee > /dev/null %
 "map <CR> o

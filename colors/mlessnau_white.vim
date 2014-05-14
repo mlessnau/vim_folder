@@ -8,15 +8,16 @@ endif
 
 let colors_name = "mlessnau_white"
 
-let s:bg      = "15"  " Background (default)
-let s:fg      = "0"   " Foreground (default)
-let s:kw      = "25"  " Keyword
-let s:string  = "196" " String
-let s:fn      = "0"   " Function
-let s:phpVar  = "52"  " PHP Variable
-let s:error   = "9"   " Error
-let s:comment = "28"
-let s:number  = "25"
+let s:bg       = "15"  " Background (default)
+let s:fg       = "0"   " Foreground (default)
+let s:kw       = "25"  " Keyword
+let s:string   = "196" " String
+let s:fn       = "0"   " Function
+let s:phpVar   = "52"  " PHP Variable
+let s:error    = "9"   " Error
+let s:comment  = "28"
+let s:number   = "25"
+let s:searchBg = "201"
 
 let s:green1  = "64"
 let s:grey1   = "0"
@@ -51,19 +52,19 @@ call HiColor("NonText",                    s:grey4,   s:bg,      "")
 call HiColor("Error",                      s:fg,      s:error,   "bold")
 
 " ### Status Line & Wildmenu ##################################################
-call HiColor("StatusLine",                 s:grey1,   s:fg,      "bold")
-call HiColor("StatusLineNC",               s:grey1,   s:grey5,   "none")
+call HiColor("StatusLine",                 s:bg,      s:kw,      "bold")
+call HiColor("StatusLineNC",               s:bg,      s:grey3,   "none")
 call HiColor("ModeMsg",                    s:grey1,   s:fg,      "bold")
 call HiColor("MoreMsg",                    s:grey1,   s:fg,      "bold")
 call HiColor("Question",                   s:grey1,   s:fg,      "bold")
-call HiColor("WildMenu",                   s:fg,      s:pink1,   "bold")
+call HiColor("WildMenu",                   s:bg,      s:kw,      "bold")
 call HiColor("Folded",                     s:bg,      s:fg,      "")
 call HiColor("FoldColumn",                 s:error,   s:grey1,   "")
 
 " ### Search & Selection ######################################################
-call HiColor("IncSearch",                  s:grey1,   s:fn,      "")
-call HiColor("Search",                     s:grey1,   s:fn,      "")
-call HiColor("Visual",                     s:grey1,   s:fg,      "")
+call HiColor("IncSearch",                  s:bg,      s:searchBg, "")
+call HiColor("Search",                     s:bg,      s:searchBg, "")
+call HiColor("Visual",                     s:kw,      s:grey3,    "bold")
 
 " ### Cursor ##################################################################
 call HiColor("lCursor",                    s:fg,      s:bg,      "")
@@ -74,9 +75,9 @@ call HiColor("CursorLine",                 "",        s:grey3,   "none")
 
 " ### Line/Column Helpers & Panes #############################################
 call HiColor("ColorColumn",                "",        s:grey2,   "")
-call HiColor("CursorLineNr",               s:fg,      s:grey2,   "")
-call HiColor("LineNr",                     s:bg,      s:grey2,   "")
-call HiColor("VertSplit",                  s:grey2,   s:grey2,   "")
+call HiColor("CursorLineNr",               s:bg,      s:kw,      "")
+call HiColor("LineNr",                     s:grey2,   s:kw,      "")
+call HiColor("VertSplit",                  s:kw,      s:kw,      "")
 
 " ### Directory Listing #######################################################
 call HiColor("Directory",                  s:kw,      "",        "")
@@ -180,7 +181,7 @@ call HiColor("phpVarSelector",             s:phpVar,  "",       "")
 call HiColor("phpIdentifier",              s:phpVar,  "",       "")
 call HiColor("phpInclude",                 s:kw,      "",       "")
 call HiColor("phpMethodsVar",              s:fg,      "",       "")
-call HiColor("phpSpecialFunction",         s:fn,      "",       "")
+call HiColor("phpSpecialFunction",         s:kw,      "",       "")
 call HiColor("phpAssignByRef",             s:fg,      "",       "")
 call HiColor("phpMemberSelector",          s:fg,      "",       "")
 call HiColor("phpComparison",              s:fg,      "",       "")
@@ -198,8 +199,8 @@ call HiColor("javaScriptOperator",         s:kw,      "",       "")
 call HiColor("javaScriptRegexpString",     s:pink2,   "",       "")
 
 " ### Pmenu ###################################################################
-call HiColor("Pmenu",                      s:pink1,   s:grey1,  "bold")
-call HiColor("PmenuSel",                   s:fg,      s:pink1,  "bold")
+call HiColor("Pmenu",                      s:kw,      s:bg,     "")
+call HiColor("PmenuSel",                   s:bg,      s:kw,     "")
 
 " ### NERDTree ################################################################
 call HiColor("NERDTreeCWD",                s:fn,      "",       "none")

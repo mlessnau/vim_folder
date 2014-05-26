@@ -181,6 +181,7 @@ call HiColor("cppAccess",                  s:red2,    "",       "bold")
 
 " ### PHP related #############################################################
 call HiColor("phpClasses",                 s:white,   "",       "bold")
+call HiColor("phpInclude",                 s:orange1, "",       "bold")
 call HiColor("phpDefine",                  s:orange1, "",       "bold")
 call HiColor("phpFunctions",               s:orange2, "",       "")
 call HiColor("phpVarSelector",             s:purple,  "",       "")

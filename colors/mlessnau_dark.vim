@@ -125,6 +125,7 @@ hi link doxygenSpecialMultilineDesc Comment
 "pythonDocTest2
 "pythonFunction
 "pythonClass
+call HiColor("pythonOperator",             s:orange1, "",       "bold")
 
 " ### XML Related #############################################################
 call HiColor("xmlTagName",                 s:orange2, "",       "bold")
@@ -184,6 +185,7 @@ call HiColor("phpClasses",                 s:white,   "",       "bold")
 call HiColor("phpInclude",                 s:orange1, "",       "bold")
 call HiColor("phpDefine",                  s:orange1, "",       "bold")
 call HiColor("phpFunctions",               s:orange2, "",       "")
+call HiColor("phpInclude",                 s:orange1, "",       "bold")
 call HiColor("phpVarSelector",             s:purple,  "",       "")
 call HiColor("phpIdentifier",              s:purple,  "",       "")
 call HiColor("phpSpecialFunction",         s:orange2, "",       "")

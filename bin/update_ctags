@@ -74,6 +74,8 @@ ctags_args = [
     '--regex-rb="/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2?/f,function,aasm_event/"'
 ]
 
+print "Updating ctags files for root path `%s`:" % root_path
+
 # find all Git versioned directories below the root directory
 output = os.popen('find %s -name ".git" -type d' % root_path).read()
 dirs = sorted(map(os.path.dirname, filter(None, output.split("\n"))))

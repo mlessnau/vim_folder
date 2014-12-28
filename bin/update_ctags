@@ -1,0 +1,144 @@
+#!/usr/bin/env python
+
+# This script
+# - takes a directory as argument
+# - scans all subdirectories for Git working directories
+# - initializes or updates a ctags file for all Git working directories
+
+import md5, os, re, string, sys
+
+if len(sys.argv) < 2:
+    exit('Fatal: no root path given')
+
+# path to root directory
+root_path = sys.argv[1]
+
+if not os.path.isdir(root_path):
+    exit('Fatal: `%s` is not a directory' % root_path)
+
+# ctags arguments
+ctags_args = [
+    '--exclude="*.html"'
+    '--exclude="*.min.js"'
+    '--exclude=".git"'
+    '--exclude="jquery-*.js"'
+    '--exclude="jquery.*.js"'
+    '--exclude="log"'
+    '--exclude="tmp"'
+    '--languages="-html"'
+    '--extra="+q+f"'
+    '--fields="+i+a+S+n"'
+
+    # JavaScript
+    '--langdef=js'
+    '--langmap="js:.js"'
+    '--regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*=[ \t]*\{/\5/,object/"'
+    '--regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*=[ \t]*function[ \t]*\(/\5/,function/"'
+    '--regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*=[ \t]*\[/\5/,array/"'
+    '--regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*=[ \t]*[^\\"]\'[^\']*/\5/,string/"'
+    '--regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*=[ \t]*(true|false)/\5/,boolean/"'
+    '--regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*=[ \t]*[0-9]+/\5/,number/"'
+    '--regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*=[ \t]*.+([,;=]|$)/\5/,variable/"'
+    '--regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*[ \t]*([,;]|$)/\5/,variable/"'
+    '--regex-js="/function[ \t]+([A-Za-z0-9_$]+)[ \t]*\([^)]*\)/\1/,function/"'
+    '--regex-js="/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*\{/\2/,object/"'
+    '--regex-js="/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*function[ \t]*\(/\2/,function/"'
+    '--regex-js="/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*\[/\2/,array/"'
+    '--regex-js="/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*[^\\"]\'[^\']*/\2/,string/"'
+    '--regex-js="/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*(true|false)/\2/,boolean/"'
+    '--regex-js="/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*[0-9]+/\2/,number/"'
+    '--regex-js="/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*[^=]+([,;]|$)/\2/,variable/"'
+
+    # php
+    '--langdef="php"'
+    '--langmap="php:.php.ctp.phtml.tpl"'
+    '--regex-php="/^ *(abstract +|final +)*class +([a-zA-Z0-9_]+)/\2/c/"'
+    '--regex-php="/^ *(abstract +|final +)*trait +([a-zA-Z0-9_]+)/\2/c/"'
+    '--regex-php="/^ *(abstract +|final +)*class :([a-zA-Z0-9:_\\-]+)/\2/c/"'
+    '--regex-php="/^ *(abstract +|final +)*class :([a-zA-Z0-9:_\\-]+)/:\2/c/"'
+    '--regex-php="/^ *interface +([a-zA-Z0-9_]+)/\1/c/"'
+    '--regex-php="/^ *(public +|static +|abstract +|protected +|private +)function +&? *([a-zA-Z0-9_]+)/\2/f/"'
+    '--regex-php="/^const +([a-zA-Z0-9_]+) += /\1/d/"'
+    '--recurse="yes"'
+
+    # Ruby
+    '--langdef="rb"'
+    '--langmap="rb:.rb"'
+    '--regex-rb="/(^|;)[ \t]*(class|module)[ \t]+([A-Z][[:alnum:]_]+(::[A-Z][[:alnum:]_]+)+)/\3/c,class,constant/"'
+    '--regex-rb="/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/"'
+    '--regex-rb="/(^|;)[ \t]*(has_many|belongs_to|has_one|has_and_belongs_to_many)\(? *:([[:alnum:]_]+)/\3/f,function,association/"'
+    '--regex-rb="/(^|;)[ \t]*(named_)?scope\(? *:([[:alnum:]_]+)/\3/f,function,named_scope/"'
+    '--regex-rb="/(^|;)[ \t]*expose\(? *:([[:alnum:]_]+)/\2/f,function,exposure/"'
+    '--regex-rb="/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2/f,function,aasm_event/"'
+    '--regex-rb="/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2!/f,function,aasm_event/"'
+    '--regex-rb="/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2?/f,function,aasm_event/"'
+]
+
+# find all Git versioned directories below the root directory
+output = os.popen('find %s -name ".git" -type d' % root_path).read()
+dirs = sorted(map(os.path.dirname, filter(None, output.split("\n"))))
+
+# prune Git versioned directories within Git versioned directories
+valid_dirs = []
+for i in range(len(dirs)):
+    valid = True
+
+    for j in range(len(dirs)):
+        if i == j:
+            continue
+
+        d = dirs[i]
+        m = len(dirs[j])
+
+        while True:
+            n = len(d)
+
+            if n > m:
+                d = os.path.dirname(d)
+            elif n == m:
+                if d == dirs[j]:
+                    valid = False
+                break
+            elif n < m:
+                break
+
+        if not valid:
+            break
+
+    if valid:
+        valid_dirs.append(dirs[i])
+
+# Use the `root_path` if no Git working directories available
+if len(valid_dirs) == 0:
+    valid_dirs.append(root_path)
+
+# check for changes
+changed_dirs = []
+for i in range(len(valid_dirs)):
+    output = os.popen('du -s %s' % valid_dirs[i]).read()
+    size = re.search('^\d+', output).group(0)
+    cache_file = "/tmp/%s.ctags_updater_cache" % md5.new(valid_dirs[i]).hexdigest()
+
+    if not os.path.isfile(cache_file):
+        open(cache_file, 'w').write(size)
+        changed_dirs.append(valid_dirs[i])
+    else:
+        old_size = open(cache_file, 'r').read()
+
+        if old_size != size:
+            open(cache_file, 'w').write(size)
+            changed_dirs.append(valid_dirs[i])
+
+# run ctags for directories with changes
+for d in changed_dirs:
+    print('Updating `%s/tags` ...' % d)
+
+    os.system('cd %s && ctags %s' % (d, string.join(ctags_args, ' ')))
+
+    # update directory size cache
+    output = os.popen('du -s %s' % d).read()
+    size = re.search('^\d+', output).group(0)
+    cache_file = "/tmp/%s.ctags_updater_cache" % md5.new(d).hexdigest()
+    open(cache_file, 'w').write(size)
+
+print('Done.')

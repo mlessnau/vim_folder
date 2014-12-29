@@ -117,28 +117,15 @@ if len(valid_dirs) == 0:
 # check for changes
 changed_dirs = []
 for i in range(len(valid_dirs)):
-    output = os.popen('cd "%s" && find . -type f -printf "%%T@ %%P\\n" | sort -n | awk "{print $2}" | tail -n 1 | cut -d " " -f 2 | xargs ls -la' % valid_dirs[i]).read()
-    cache_file = "/tmp/%s.ctags_updater_cache" % md5.new(valid_dirs[i]).hexdigest()
+    output = os.popen('cd "%s" && find . -type f -printf "%%T@ %%P\\n" | sort -n | awk "{print $2}" | tail -n 1 | cut -d " " -f 2' % valid_dirs[i]).read()
 
-    if not os.path.isfile(cache_file):
-        open(cache_file, 'w').write(output)
+    if output != "tags\n":
         changed_dirs.append(valid_dirs[i])
-    else:
-        old_output = open(cache_file, 'r').read()
-
-        if old_output != output:
-            open(cache_file, 'w').write(output)
-            changed_dirs.append(valid_dirs[i])
 
 # run ctags for directories with changes
 for d in changed_dirs:
     print('Updating `%s/tags` ...' % d)
 
-    os.system('cd %s && ctags %s' % (d, string.join(ctags_args, ' ')))
-
-    # update directory size cache
-    output = os.popen('cd "%s" && find . -type f -printf "%%T@ %%P\\n" | sort -n | awk "{print $2}" | tail -n 1 | cut -d " " -f 2 | xargs ls -la' % d).read()
-    cache_file = "/tmp/%s.ctags_updater_cache" % md5.new(d).hexdigest()
-    open(cache_file, 'w').write(output)
+    os.system('cd %s && ctags -R %s .' % (d, string.join(ctags_args, ' ')))
 
 print('Done.')

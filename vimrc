@@ -25,6 +25,7 @@ set lazyredraw                         " disable rendering when macros are execu
 let mapleader=","                      " redefine <leader>
 set cursorline
 set cursorcolumn
+set laststatus=2
 
 set colorcolumn=80
 " execute "set colorcolumn=" . join(range(80,334), ',')

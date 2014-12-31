@@ -68,7 +68,7 @@ call HiColor("FoldColumn",                 s:error,   s:grey1,    "")
 " ### Search & Selection ######################################################
 call HiColor("IncSearch",                  s:bg,      s:searchBg, "")
 call HiColor("Search",                     s:bg,      s:searchBg, "")
-call HiColor("Visual",                     s:bg,      s:kw,       "")
+call HiColor("Visual",                     s:bg,      "33",       "")
 call HiColor("MatchParen",                 s:number,  s:bg,       "")
 
 " ### Cursor ##################################################################

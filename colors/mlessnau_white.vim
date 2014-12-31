@@ -56,8 +56,8 @@ call HiColor("NonText",                    s:grey3,   s:bg,       "")
 call HiColor("Error",                      s:fg,      s:error,    "bold")
 
 " ### Status Line & Wildmenu ##################################################
-call HiColor("StatusLine",                 s:bg,      s:kw,       "bold")
-call HiColor("StatusLineNC",               s:bg,      s:grey3,    "none")
+" call HiColor("StatusLine",                 s:bg,      s:kw,       "bold")
+" call HiColor("StatusLineNC",               s:bg,      s:grey3,    "none")
 call HiColor("ModeMsg",                    s:grey1,   s:fg,       "bold")
 call HiColor("MoreMsg",                    s:grey1,   s:fg,       "bold")
 call HiColor("Question",                   s:grey1,   s:fg,       "bold")

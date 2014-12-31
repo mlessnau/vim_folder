@@ -14,7 +14,7 @@ let s:lhl      = "255"    " Line highlight
 let s:bg       = "15"  " Background (default)
 let s:fg       = "0"   " Foreground (default)
 let s:kw       = "26"  " Keyword
-let s:string   = "201" " String
+let s:string   = "200" " String
 let s:fn       = "0"   " Function
 let s:phpVar1  = "28"  " PHP variable
 let s:phpVar2  = "130" " PHP variable
@@ -68,20 +68,21 @@ call HiColor("FoldColumn",                 s:error,   s:grey1,    "")
 " ### Search & Selection ######################################################
 call HiColor("IncSearch",                  s:bg,      s:searchBg, "")
 call HiColor("Search",                     s:bg,      s:searchBg, "")
-call HiColor("Visual",                     s:kw,      s:grey3,    "bold")
+call HiColor("Visual",                     s:bg,      s:kw,       "")
+call HiColor("MatchParen",                 s:number,  s:bg,       "")
 
 " ### Cursor ##################################################################
-call HiColor("lCursor",                    s:fg,      s:bg,       "")
-call HiColor("Cursor",                     s:fg,      "",         "")
+call HiColor("lCursor",                    s:bg,      s:kw,       "")
+call HiColor("Cursor",                     s:kw,      "",         "")
 call HiColor("CursorColumn",               "",        s:chl,      "")
 call HiColor("CursorIM",                   s:fg,      "",         "")
 call HiColor("CursorLine",                 "",        s:lhl,      "none")
 
 " ### Line/Column Helpers & Panes #############################################
 call HiColor("ColorColumn",                "",        s:cc,       "")
-call HiColor("CursorLineNr",               s:bg,      s:kw,       "")
-call HiColor("LineNr",                     s:grey2,   s:kw,       "")
-call HiColor("VertSplit",                  s:kw,      s:kw,       "")
+call HiColor("CursorLineNr",               s:kw,      s:lhl,      "")
+call HiColor("LineNr",                     s:bg,      s:grey3,    "")
+call HiColor("VertSplit",                  s:grey3,   s:grey3,    "")
 
 " ### Directory Listing #######################################################
 call HiColor("Directory",                  s:kw,      "",         "")
@@ -212,8 +213,8 @@ call HiColor("javaScriptOperator",         s:kw,      "",         "")
 call HiColor("javaScriptRegexpString",     s:pink2,   "",         "")
 
 " ### Pmenu ###################################################################
-call HiColor("Pmenu",                      s:kw,      s:bg,       "")
-call HiColor("PmenuSel",                   s:bg,      s:kw,       "")
+call HiColor("Pmenu",                      s:bg,      s:number,   "")
+call HiColor("PmenuSel",                   s:bg,      s:number,   "bold")
 
 " ### NERDTree ################################################################
 call HiColor("NERDTreeCWD",                s:fn,      "",         "none")
@@ -228,17 +229,14 @@ call HiColor("DiffText",                   "",        "226",      "none")
 "Ignore
 
 " ### XML #####################################################################
-
 call HiColor("xmlTagName",                 s:kw,      "",         "")
 call HiColor("xmlAttrib",                  s:phpVar1, "",         "")
 call HiColor("xmlEndTag",                  s:kw,      "",         "none")
 
 " ### PO ######################################################################
-
 call HiColor("poFormat",                   s:number,  "",         "")
 
 " ### SQL #####################################################################
-
 call HiColor("sqlStatement",               s:string,  "",         "")
 call HiColor("sqlKeyword",                 s:string,  "",         "")
 call HiColor("sqlOperator",                s:string,  "",         "")

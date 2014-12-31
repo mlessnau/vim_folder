@@ -74,6 +74,9 @@ map <leader>+ <C-]>
 map <leader>- <C-O>
 map <leader># :tselect<CR>
 
+" Supertab
+let g:SuperTabDefaultCompletionType = "<C-n>"
+
 " ctrlp
 map <leader><leader> <c-p>
 let g:ctrlp_working_path_mode = ''

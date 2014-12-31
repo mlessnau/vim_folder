@@ -25,7 +25,10 @@ set lazyredraw                         " disable rendering when macros are execu
 let mapleader=","                      " redefine <leader>
 set cursorline
 set cursorcolumn
+
 set colorcolumn=80
+" execute "set colorcolumn=" . join(range(80,334), ',')
+
 syntax on                              " enable syntax highlighting
 filetype plugin indent on              " enable filetype plugins and indentation
 
@@ -54,7 +57,7 @@ let MRU_Max_Menu_Entries=20
 map <leader>m :MRU<CR>
 
 " colors
-colorscheme mlessnau_dark
+colorscheme mlessnau_white
 
 cmap w!! %!sudo tee > /dev/null %
 "map <CR> o

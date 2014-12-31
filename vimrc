@@ -39,6 +39,9 @@ let g:NERDTreeWinSize=40               " set NERDTree width to 50 columns
 "autocmd VimEnter * NERDTree            " open NERDTree on startup
 "autocmd VimEnter * wincmd l            " focus on buffer
 
+" Airline
+let g:airline_theme="understated"
+
 " block shift
 map <C-k> :call BlockShiftUp()<CR><Esc><Esc>
 map <C-j> :call BlockShiftDown()<CR><Esc><Esc>

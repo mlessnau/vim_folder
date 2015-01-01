@@ -14,7 +14,7 @@ let s:lhl      = "255"    " Line highlight
 let s:bg       = "15"  " Background (default)
 let s:fg       = "0"   " Foreground (default)
 let s:kw       = "26"  " Keyword
-let s:string   = "200" " String
+let s:string   = "208" " String
 let s:fn       = "0"   " Function
 let s:phpVar1  = "28"  " PHP variable
 let s:phpVar2  = "130" " PHP variable
@@ -140,15 +140,15 @@ call HiColor("htmlBold",                   s:fg,      "",         "bold")
 call HiColor("htmlBoldItalic",             "",        "",         "bold,italic")
 call HiColor("htmlBoldUnderline",          "",        "",         "underline")
 call HiColor("htmlBoldUnderlineItalic",    "",        "",         "bold,underline,italic")
-call HiColor("htmlEndTag",                 s:kw,      "",         "none")
+call HiColor("htmlEndTag",                 "200",     "",         "none")
 call HiColor("htmlItalic",                 "",        "",         "italic")
 call HiColor("htmlLink",                   s:fg,      "",         "")
 call HiColor("htmlSpecialChar",            s:number,  "",         "")
-call HiColor("htmlSpecialTag",             s:kw,      "",         "")
-call HiColor("htmlSpecialTagName",         s:kw,      "",         "")
-call HiColor("htmlTag",                    s:kw,      "",         "")
-call HiColor("htmlTagN",                   s:kw,      "",         "")
-call HiColor("htmlTagName",                s:kw,      "",         "")
+call HiColor("htmlSpecialTag",             "200",     "",         "")
+call HiColor("htmlSpecialTagName",         "200",     "",         "")
+call HiColor("htmlTag",                    "200",     "",         "")
+call HiColor("htmlTagN",                   "200",     "",         "")
+call HiColor("htmlTagName",                "200",     "",         "")
 call HiColor("htmlUnderline",              "",        "",         "underline")
 call HiColor("htmlUnderlineItalic",        "",        "",         "underline,italic")
 
@@ -199,9 +199,10 @@ call HiColor("phpMemberSelector",          s:fg,      "",         "")
 call HiColor("phpMethodsVar",              s:fg,      "",         "")
 call HiColor("phpRegion",                  s:fg,      "",         "")
 call HiColor("phpSCKeyword",               s:kw,      "",         "")
-call HiColor("phpSpecialFunction",         "52",     "",          "")
+call HiColor("phpSpecialFunction",         "52",      "",         "")
 call HiColor("phpType",                    s:number,  "",         "")
 call HiColor("phpVarSelector",             s:phpVar2, "",         "")
+call HiColor("phpBackslashSequences",      s:number,  "",         "")
 
 " ### JavaScript Related ######################################################
 call HiColor("javaScript",                 s:fg,      "",         "")
@@ -229,9 +230,9 @@ call HiColor("DiffText",                   "",        "226",      "none")
 "Ignore
 
 " ### XML #####################################################################
-call HiColor("xmlTagName",                 s:kw,      "",         "")
+call HiColor("xmlTagName",                 "200",     "",         "")
 call HiColor("xmlAttrib",                  s:phpVar1, "",         "")
-call HiColor("xmlEndTag",                  s:kw,      "",         "none")
+call HiColor("xmlEndTag",                  "200",     "",         "none")
 
 " ### PO ######################################################################
 call HiColor("poFormat",                   s:number,  "",         "")

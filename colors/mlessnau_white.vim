@@ -122,6 +122,10 @@ hi link doxygenParamName            Comment
 hi link doxygenSpecialMultilineDesc Comment
 
 " ### Python Related ##########################################################
+call HiColor("pythonEscape",               s:number,  "",         "")
+call HiColor("pythonInclude",              s:kw,      "",         "")
+call HiColor("pythonOperator",             s:kw,      "",         "")
+call HiColor("pythonBuiltin",              s:number,  "",         "")
 "pythonCoding
 "pythonRun
 "pythonBuiltinObj
@@ -192,6 +196,7 @@ call HiColor("phpHereDoc",                 s:string,  "",         "")
 call HiColor("phpDocCustomTags",           s:comment, "",         "bold")
 call HiColor("phpDocParam",                s:comment, "",         "")
 call HiColor("phpDocTags",                 s:comment, "",         "bold")
+call HiColor("phpDocTodo",                 s:bg,      "200",      "bold")
 call HiColor("phpFunctions",               "52",      "",         "")
 call HiColor("phpIdentifier",              s:phpVar1, "",         "")
 call HiColor("phpInclude",                 s:kw,      "",         "")
@@ -214,8 +219,8 @@ call HiColor("javaScriptOperator",         s:kw,      "",         "")
 call HiColor("javaScriptRegexpString",     s:pink2,   "",         "")
 
 " ### Pmenu ###################################################################
-call HiColor("Pmenu",                      s:bg,      s:number,   "")
-call HiColor("PmenuSel",                   s:bg,      s:number,   "bold")
+call HiColor("Pmenu",                      "210",     s:number,   "")
+call HiColor("PmenuSel",                   s:bg,      s:number,   "")
 
 " ### NERDTree ################################################################
 call HiColor("NERDTreeCWD",                s:fn,      "",         "none")
